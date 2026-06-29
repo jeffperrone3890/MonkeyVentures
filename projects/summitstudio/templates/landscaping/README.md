@@ -1,0 +1,1 @@
+Master landscaping website template for Summit Studio.
