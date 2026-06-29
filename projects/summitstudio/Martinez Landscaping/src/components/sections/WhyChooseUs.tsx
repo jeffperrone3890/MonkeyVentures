@@ -3,8 +3,7 @@ import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
-import { BENEFITS, STATS } from '@/lib/data';
-import { SITE } from '@/lib/site';
+import { BUSINESS, BENEFITS, STATS } from '@/data/business';
 
 export function WhyChooseUs() {
   return (
@@ -64,7 +63,7 @@ export function WhyChooseUs() {
             </div>
 
             <div className="absolute -bottom-6 -left-4 max-w-[15rem] rounded-3xl border border-ink/5 bg-paper/95 p-5 shadow-lift backdrop-blur sm:-left-8">
-              <p className="font-display text-3xl font-semibold text-pine">{SITE.credentials.certification.split(' on')[0]}</p>
+              <p className="font-display text-3xl font-semibold text-pine">{BUSINESS.credentials.certification.split(' on')[0]}</p>
               <p className="mt-1 text-sm text-mute">on staff — guiding every prune and removal.</p>
             </div>
           </Reveal>

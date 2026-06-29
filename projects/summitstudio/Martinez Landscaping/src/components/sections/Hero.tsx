@@ -6,7 +6,7 @@ import { Phone, ArrowRight, ShieldCheck, Clock } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { StarRating } from '@/components/ui/StarRating';
-import { SITE } from '@/lib/site';
+import { BUSINESS } from '@/data/business';
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -44,7 +44,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-sage-50/20 bg-sage-50/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-sage-50 backdrop-blur-sm"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-amber" />
-            Serving New Castle County since {SITE.foundedYear}
+            Serving New Castle County since {BUSINESS.foundedYear}
           </motion.span>
 
           <motion.h1
@@ -67,9 +67,9 @@ export function Hero() {
               Get a free estimate
               <ArrowRight className="h-5 w-5" />
             </Button>
-            <Button href={SITE.phoneHref} variant="onDark" size="lg">
+            <Button href={BUSINESS.phoneHref} variant="onDark" size="lg">
               <Phone className="h-5 w-5" />
-              {SITE.phone}
+              {BUSINESS.phone}
             </Button>
           </motion.div>
 
@@ -79,9 +79,9 @@ export function Hero() {
             className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-sage-50/90"
           >
             <span className="inline-flex items-center gap-2">
-              <StarRating rating={SITE.reviews.average} />
-              <span className="font-semibold">{SITE.reviews.average}</span>
-              <span className="text-sage-50/70">({SITE.reviews.count} reviews)</span>
+              <StarRating rating={BUSINESS.reviews.average} />
+              <span className="font-semibold">{BUSINESS.reviews.average}</span>
+              <span className="text-sage-50/70">({BUSINESS.reviews.count} reviews)</span>
             </span>
             <span className="hidden h-4 w-px bg-sage-50/25 sm:block" />
             <span className="inline-flex items-center gap-2">

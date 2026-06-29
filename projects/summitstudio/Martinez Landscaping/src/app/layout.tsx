@@ -3,8 +3,7 @@ import { Fraunces, Hanken_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { SITE } from '@/lib/site';
-import { SERVICE_TOWNS } from '@/lib/data';
+import { BUSINESS, SERVICE_TOWNS } from '@/data/business';
 
 // Display: a soft, optical serif — handcrafted and established.
 const fraunces = Fraunces({
@@ -22,12 +21,12 @@ const hanken = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE.url),
+  metadataBase: new URL(BUSINESS.url),
   title: {
-    default: `${SITE.name} | Landscaping & Tree Care in New Castle County, DE`,
-    template: `%s | ${SITE.shortName}`,
+    default: `${BUSINESS.name} | Landscaping & Tree Care in New Castle County, DE`,
+    template: `%s | ${BUSINESS.shortName}`,
   },
-  description: SITE.description,
+  description: BUSINESS.description,
   keywords: [
     'landscaping New Castle County',
     'tree removal Wilmington DE',
@@ -37,23 +36,23 @@ export const metadata: Metadata = {
     'hardscaping patios',
     'emergency tree service Delaware',
   ],
-  applicationName: SITE.name,
-  authors: [{ name: SITE.name }],
+  applicationName: BUSINESS.name,
+  authors: [{ name: BUSINESS.name }],
   creator: 'Summit Studio',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: SITE.url,
-    siteName: SITE.name,
-    title: `${SITE.name} — ${SITE.tagline}`,
-    description: SITE.description,
-    images: [{ url: '/images/og.jpg', width: 1200, height: 630, alt: SITE.name }],
+    url: BUSINESS.url,
+    siteName: BUSINESS.name,
+    title: `${BUSINESS.name} — ${BUSINESS.tagline}`,
+    description: BUSINESS.description,
+    images: [{ url: '/images/og.jpg', width: 1200, height: 630, alt: BUSINESS.name }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: SITE.name,
-    description: SITE.description,
+    title: BUSINESS.name,
+    description: BUSINESS.description,
     images: ['/images/og.jpg'],
   },
   robots: {
@@ -75,28 +74,28 @@ function localBusinessJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LandscapingBusiness',
-    '@id': `${SITE.url}/#business`,
-    name: SITE.name,
-    legalName: SITE.legalName,
-    description: SITE.description,
-    url: SITE.url,
-    telephone: SITE.phone,
-    email: SITE.email,
-    image: `${SITE.url}/images/og.jpg`,
+    '@id': `${BUSINESS.url}/#business`,
+    name: BUSINESS.name,
+    legalName: BUSINESS.legalName,
+    description: BUSINESS.description,
+    url: BUSINESS.url,
+    telephone: BUSINESS.phone,
+    email: BUSINESS.email,
+    image: `${BUSINESS.url}/images/og.jpg`,
     priceRange: '$$',
-    foundingDate: String(SITE.foundedYear),
+    foundingDate: String(BUSINESS.foundedYear),
     address: {
       '@type': 'PostalAddress',
-      streetAddress: SITE.address.street,
-      addressLocality: SITE.address.city,
-      addressRegion: SITE.address.region,
-      postalCode: SITE.address.postalCode,
-      addressCountry: SITE.address.country,
+      streetAddress: BUSINESS.address.street,
+      addressLocality: BUSINESS.address.city,
+      addressRegion: BUSINESS.address.region,
+      postalCode: BUSINESS.address.postalCode,
+      addressCountry: BUSINESS.address.country,
     },
-    geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
+    geo: { '@type': 'GeoCoordinates', latitude: BUSINESS.geo.lat, longitude: BUSINESS.geo.lng },
     areaServed: SERVICE_TOWNS.map((t) => ({
       '@type': 'City',
-      name: `${t.name}, ${SITE.address.region}`,
+      name: `${t.name}, ${BUSINESS.address.region}`,
     })),
     openingHoursSpecification: [
       { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '07:00', closes: '18:00' },
@@ -104,10 +103,10 @@ function localBusinessJsonLd() {
     ],
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: String(SITE.reviews.average),
-      reviewCount: String(SITE.reviews.count),
+      ratingValue: String(BUSINESS.reviews.average),
+      reviewCount: String(BUSINESS.reviews.count),
     },
-    sameAs: [SITE.social.facebook, SITE.social.instagram],
+    sameAs: [BUSINESS.social.facebook, BUSINESS.social.instagram],
   };
 }
 

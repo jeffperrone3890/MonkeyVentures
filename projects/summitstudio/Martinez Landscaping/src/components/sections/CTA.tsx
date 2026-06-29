@@ -3,8 +3,7 @@ import { Phone, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
-import { PROCESS } from '@/lib/data';
-import { SITE } from '@/lib/site';
+import { BUSINESS, PROCESS } from '@/data/business';
 
 export function CTA() {
   return (
@@ -44,9 +43,9 @@ export function CTA() {
                 Get my free estimate
                 <ArrowRight className="h-5 w-5" />
               </Button>
-              <Button href={SITE.phoneHref} variant="onDark" size="lg">
+              <Button href={BUSINESS.phoneHref} variant="onDark" size="lg">
                 <Phone className="h-5 w-5" />
-                Call {SITE.phone}
+                Call {BUSINESS.phone}
               </Button>
             </div>
           </Reveal>

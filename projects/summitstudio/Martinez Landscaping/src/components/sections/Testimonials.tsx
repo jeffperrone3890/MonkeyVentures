@@ -4,8 +4,7 @@ import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
 import { StarRating } from '@/components/ui/StarRating';
-import { TESTIMONIALS } from '@/lib/data';
-import { SITE } from '@/lib/site';
+import { BUSINESS, TESTIMONIALS } from '@/data/business';
 
 export function Testimonials() {
   return (
@@ -19,11 +18,11 @@ export function Testimonials() {
           />
           <Reveal delay={0.1}>
             <div className="flex items-center gap-4 rounded-3xl border border-ink/5 bg-paper px-6 py-4 shadow-soft">
-              <div className="font-display text-4xl font-semibold text-pine">{SITE.reviews.average}</div>
+              <div className="font-display text-4xl font-semibold text-pine">{BUSINESS.reviews.average}</div>
               <div>
-                <StarRating rating={SITE.reviews.average} />
+                <StarRating rating={BUSINESS.reviews.average} />
                 <p className="mt-1 text-sm text-mute">
-                  {SITE.reviews.count} verified reviews
+                  {BUSINESS.reviews.count} verified reviews
                 </p>
               </div>
             </div>

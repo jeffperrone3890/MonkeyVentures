@@ -2,12 +2,12 @@ import { Phone, Mail, MapPin, Clock, Facebook, Instagram, ShieldCheck } from 'lu
 import { Container } from '@/components/ui/Container';
 import { Logo } from '@/components/ui/Logo';
 import { Button } from '@/components/ui/Button';
-import { SITE, NAV_LINKS } from '@/lib/site';
-import { SERVICES } from '@/lib/data';
+import { BUSINESS, SERVICES } from '@/data/business';
+import { NAV_LINKS } from '@/lib/nav';
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const { address } = SITE;
+  const { address } = BUSINESS;
 
   return (
     <footer className="bg-forest text-sage-50">
@@ -17,11 +17,11 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Logo invert />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-sage/70">
-              Full-service landscaping and certified tree care for New Castle County, Delaware. Family-owned since {SITE.foundedYear}.
+              Full-service landscaping and certified tree care for New Castle County, Delaware. Family-owned since {BUSINESS.foundedYear}.
             </p>
             <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-sage-50/10 px-3.5 py-1.5 text-xs font-semibold text-amber-soft">
               <ShieldCheck className="h-4 w-4" />
-              {SITE.credentials.insuranceAmount} · Licensed &amp; insured
+              {BUSINESS.credentials.insuranceAmount} · Licensed &amp; insured
             </div>
           </div>
 
@@ -58,15 +58,15 @@ export function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-soft">Get in touch</h3>
             <ul className="mt-4 space-y-3 text-sm text-sage/80">
               <li>
-                <a href={SITE.phoneHref} className="inline-flex items-center gap-2.5 transition-colors hover:text-sage-50">
+                <a href={BUSINESS.phoneHref} className="inline-flex items-center gap-2.5 transition-colors hover:text-sage-50">
                   <Phone className="h-4 w-4 shrink-0 text-fern" />
-                  {SITE.phone}
+                  {BUSINESS.phone}
                 </a>
               </li>
               <li>
-                <a href={SITE.emailHref} className="inline-flex items-center gap-2.5 transition-colors hover:text-sage-50">
+                <a href={BUSINESS.emailHref} className="inline-flex items-center gap-2.5 transition-colors hover:text-sage-50">
                   <Mail className="h-4 w-4 shrink-0 text-fern" />
-                  {SITE.email}
+                  {BUSINESS.email}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
@@ -79,7 +79,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2.5">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-fern" />
-                <span>{SITE.emergencyNote}</span>
+                <span>{BUSINESS.emergencyNote}</span>
               </li>
             </ul>
             <Button href="#contact" size="sm" className="mt-5">
@@ -91,13 +91,13 @@ export function Footer() {
         {/* Legal bar */}
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-sage-50/10 pt-8 text-xs text-sage/60 sm:flex-row">
           <p>
-            © {year} {SITE.legalName}. All rights reserved.
+            © {year} {BUSINESS.legalName}. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
-            <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="transition-colors hover:text-sage-50">
+            <a href={BUSINESS.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="transition-colors hover:text-sage-50">
               <Facebook className="h-4.5 w-4.5" />
             </a>
-            <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-sage-50">
+            <a href={BUSINESS.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-sage-50">
               <Instagram className="h-4.5 w-4.5" />
             </a>
             <span className="text-sage/40">Site by Summit Studio</span>

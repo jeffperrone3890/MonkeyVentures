@@ -6,7 +6,8 @@ import { Menu, X, Phone } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { Logo } from '@/components/ui/Logo';
-import { SITE, NAV_LINKS } from '@/lib/site';
+import { BUSINESS } from '@/data/business';
+import { NAV_LINKS } from '@/lib/nav';
 import { cn } from '@/lib/utils';
 
 export function Navbar() {
@@ -42,7 +43,7 @@ export function Navbar() {
       )}
     >
       <Container className="flex h-18 items-center justify-between py-3">
-        <a href="#top" aria-label={`${SITE.name} — home`} className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber">
+        <a href="#top" aria-label={`${BUSINESS.name} — home`} className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber">
           <Logo invert={!solid} />
         </a>
 
@@ -64,14 +65,14 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <a
-            href={SITE.phoneHref}
+            href={BUSINESS.phoneHref}
             className={cn(
               'inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:opacity-70',
               solid ? 'text-pine' : 'text-sage-50',
             )}
           >
             <Phone className="h-4 w-4" />
-            {SITE.phone}
+            {BUSINESS.phone}
           </a>
           <Button href="#contact" size="sm">
             Free estimate
@@ -117,11 +118,11 @@ export function Navbar() {
               ))}
               <div className="mt-2 flex flex-col gap-2 border-t border-ink/5 pt-4">
                 <a
-                  href={SITE.phoneHref}
+                  href={BUSINESS.phoneHref}
                   className="inline-flex items-center gap-2 px-4 text-base font-semibold text-pine"
                 >
                   <Phone className="h-4 w-4" />
-                  {SITE.phone}
+                  {BUSINESS.phone}
                 </a>
                 <Button href="#contact" onClick={() => setOpen(false)} className="w-full" size="lg">
                   Get a free estimate

@@ -5,7 +5,7 @@ import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
 import { Button } from '@/components/ui/Button';
-import { SERVICES } from '@/lib/data';
+import { SERVICES } from '@/data/business';
 
 export function Services() {
   return (

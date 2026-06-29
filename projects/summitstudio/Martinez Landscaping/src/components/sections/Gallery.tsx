@@ -7,7 +7,7 @@ import { X, ChevronLeft, ChevronRight, Plus } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { GALLERY, GALLERY_CATEGORIES } from '@/lib/data';
+import { GALLERY, GALLERY_CATEGORIES } from '@/data/business';
 import { cn } from '@/lib/utils';
 
 export function Gallery() {

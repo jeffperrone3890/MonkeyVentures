@@ -4,8 +4,7 @@ import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
 import { Button } from '@/components/ui/Button';
-import { SERVICE_TOWNS } from '@/lib/data';
-import { SITE } from '@/lib/site';
+import { BUSINESS, SERVICE_TOWNS } from '@/data/business';
 
 export function ServiceArea() {
   return (
@@ -17,7 +16,7 @@ export function ServiceArea() {
             <SectionHeading
               eyebrow="Where we work"
               title="Proudly serving New Castle County."
-              intro={`Based in ${SITE.address.city}, our crews cover the county and the towns around it. If you're nearby and don't see your town, just ask — chances are we're already in your neighborhood.`}
+              intro={`Based in ${BUSINESS.address.city}, our crews cover the county and the towns around it. If you're nearby and don't see your town, just ask — chances are we're already in your neighborhood.`}
             />
 
             <Reveal delay={0.1}>
@@ -67,7 +66,7 @@ export function ServiceArea() {
                     <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-amber/40" />
                   </span>
                   <p className="mt-5 font-display text-2xl font-semibold text-sage-50">
-                    {SITE.address.city}, {SITE.address.region}
+                    {BUSINESS.address.city}, {BUSINESS.address.region}
                   </p>
                   <p className="mt-1 text-sm text-sage/70">Headquarters &amp; dispatch</p>
                 </div>

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Logo } from '@/components/ui/Logo';
-import { SITE } from '@/lib/site';
+import { BUSINESS } from '@/data/business';
 
 export const metadata = {
   title: 'Page not found',
@@ -31,8 +31,8 @@ export default function NotFound() {
           <Button href="/" variant="primary" size="lg">
             Back to home
           </Button>
-          <Button href={SITE.phoneHref} variant="outline" size="lg">
-            Call {SITE.phone}
+          <Button href={BUSINESS.phoneHref} variant="outline" size="lg">
+            Call {BUSINESS.phone}
           </Button>
         </div>
         <p className="mt-10 text-sm text-mute">

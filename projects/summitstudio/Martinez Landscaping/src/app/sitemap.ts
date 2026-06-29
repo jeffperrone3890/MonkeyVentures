@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { SITE } from '@/lib/site';
+import { BUSINESS } from '@/data/business';
 
 /**
  * Sitemap for search engines. This is a single-page site, so the sitemap
@@ -10,7 +10,7 @@ import { SITE } from '@/lib/site';
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: SITE.url,
+      url: BUSINESS.url,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { SITE } from '@/lib/site';
+import { BUSINESS } from '@/data/business';
 
 /**
  * Robots policy: allow all crawlers across the whole site and point them to
@@ -12,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/',
     },
-    sitemap: `${SITE.url}/sitemap.xml`,
-    host: SITE.url,
+    sitemap: `${BUSINESS.url}/sitemap.xml`,
+    host: BUSINESS.url,
   };
 }

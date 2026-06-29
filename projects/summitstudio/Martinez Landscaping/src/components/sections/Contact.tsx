@@ -6,8 +6,7 @@ import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
-import { SITE } from '@/lib/site';
-import { SERVICES } from '@/lib/data';
+import { BUSINESS, SERVICES } from '@/data/business';
 import { cn } from '@/lib/utils';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
@@ -50,7 +49,7 @@ export function Contact() {
       form.reset();
     } catch {
       setStatus('error');
-      setError('Something went wrong sending your request. Please call us at ' + SITE.phone + '.');
+      setError('Something went wrong sending your request. Please call us at ' + BUSINESS.phone + '.');
     }
   }
 
@@ -68,20 +67,20 @@ export function Contact() {
 
             <ul className="mt-8 space-y-4">
               <li>
-                <a href={SITE.phoneHref} className="group flex items-center gap-4 rounded-2xl border border-ink/5 bg-paper p-4 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
+                <a href={BUSINESS.phoneHref} className="group flex items-center gap-4 rounded-2xl border border-ink/5 bg-paper p-4 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-pine/10 text-pine"><Phone className="h-5 w-5" /></span>
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-wider text-mute">Call or text</span>
-                    <span className="block font-semibold text-forest">{SITE.phone}</span>
+                    <span className="block font-semibold text-forest">{BUSINESS.phone}</span>
                   </span>
                 </a>
               </li>
               <li>
-                <a href={SITE.emailHref} className="group flex items-center gap-4 rounded-2xl border border-ink/5 bg-paper p-4 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
+                <a href={BUSINESS.emailHref} className="group flex items-center gap-4 rounded-2xl border border-ink/5 bg-paper p-4 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-pine/10 text-pine"><Mail className="h-5 w-5" /></span>
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-wider text-mute">Email</span>
-                    <span className="block font-semibold text-forest">{SITE.email}</span>
+                    <span className="block font-semibold text-forest">{BUSINESS.email}</span>
                   </span>
                 </a>
               </li>
@@ -89,7 +88,7 @@ export function Contact() {
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-pine/10 text-pine"><Clock className="h-5 w-5" /></span>
                 <span>
                   <span className="block text-xs font-semibold uppercase tracking-wider text-mute">Hours</span>
-                  <span className="block text-sm font-medium text-forest">{SITE.hours[0].day}: {SITE.hours[0].time}</span>
+                  <span className="block text-sm font-medium text-forest">{BUSINESS.hours[0].day}: {BUSINESS.hours[0].time}</span>
                 </span>
               </li>
               <li className="flex items-center gap-4 rounded-2xl border border-ink/5 bg-paper p-4 shadow-soft">
@@ -103,7 +102,7 @@ export function Contact() {
 
             <p className="mt-6 inline-flex items-center gap-2 text-sm text-mute">
               <ShieldCheck className="h-4 w-4 text-fern" />
-              {SITE.credentials.insuranceAmount} · Licensed &amp; insured in Delaware
+              {BUSINESS.credentials.insuranceAmount} · Licensed &amp; insured in Delaware
             </p>
           </div>
 
@@ -117,7 +116,7 @@ export function Contact() {
                   </span>
                   <h3 className="mt-5 font-display text-2xl font-semibold text-forest">Request received.</h3>
                   <p className="mt-2 max-w-sm text-mute">
-                    Thanks — we&rsquo;ve got your details and we&rsquo;ll be in touch within 24 hours with your written estimate. For anything urgent, call {SITE.phone}.
+                    Thanks — we&rsquo;ve got your details and we&rsquo;ll be in touch within 24 hours with your written estimate. For anything urgent, call {BUSINESS.phone}.
                   </p>
                   <Button onClick={() => setStatus('idle')} variant="outline" className="mt-7">
                     Send another request
