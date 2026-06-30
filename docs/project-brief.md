@@ -1,133 +1,198 @@
-# PROJECT BRIEF
+# Monkey Ventures - Project Brief
 
-## Project Name
+## Company Vision
 
-Monkey Ventures
+Monkey Ventures is a holding company focused on building AI-powered businesses. The first venture is **Summit Studio Agency**, an AI-assisted website agency that creates premium websites for small businesses using a reusable website engine rather than building every client site from scratch.
 
-## Mission
-
-Build a repeatable system for creating AI-powered businesses, beginning with Summit Studio, an AI-assisted website agency for small businesses.
-
-## Current Sprint
-
-Sprint 2 – Summit Studio Business Blueprint
-
-## Current Goal
-
-Define the business before building software. By the end of this sprint, we will know exactly who our customer is, what we sell, how we sell it, and how we deliver it.
-
-## Current Priority
-
-Create a clear, focused business blueprint for Summit Studio that will guide every technical decision going forward.
+The objective is not simply to sell websites, but to build repeatable systems, documentation, prompts, templates, automation, and workflows that can be reused for future ventures.
 
 ---
 
-## Roadmap
+## Primary Goal
 
-### ✅ Sprint 1 – Founder Workstation (Completed)
+Build a repeatable system capable of producing premium-quality websites quickly enough that Summit Studio can begin acquiring paying customers.
 
-* Installed Cursor
-* Installed Git
-* Created GitHub repository
-* Cloned repository into Cursor
-* Created initial folder structure
+Success is measured by:
 
-### 🔄 Sprint 2 – Business Blueprint (Current)
-
-### ⏳ Sprint 3 – Generate the First Website Template
-
-### ⏳ Sprint 4 – Sales & Customer Acquisition
-
-### ⏳ Sprint 5 – Automation & Scaling
+1. Selling the first website.
+2. Building repeatable workflows.
+3. Automating proven processes.
+4. Scaling into additional AI businesses.
 
 ---
 
-## Completed
+## My Experience
 
-* Founder development environment is ready.
-* Company repository created.
-* Documentation system established.
+I am completely new to software development and entrepreneurship.
 
----
+Assume I know nothing unless it has already been explained.
 
-## Current Tasks
+Break work into small actionable steps.
 
-☐ Define our ideal customer.
+Avoid unnecessary theory.
 
-☐ Define our core offer.
+Explain technical concepts only when necessary.
 
-☐ Define pricing strategy.
+If enough information exists to continue, continue without waiting for permission.
 
-☐ Define our website production workflow.
-
-☐ Define MVP (Minimum Viable Product).
+Only ask clarifying questions if they materially affect implementation.
 
 ---
 
-## Decisions Made
+## AI Roles
 
-Decision #001
-Monkey Ventures will be the parent company.
+### ChatGPT
 
-Decision #002
-Summit Studio will be the first business.
+Acts as:
 
-Decision #003
-Documentation lives inside the GitHub repository.
+- CTO
+- Project Manager
+- Technical Architect
+- Business Strategist
+- Documentation Manager
+- Sprint Planner
 
-Decision #004
-We prioritize building over excessive planning.
+Responsibilities:
 
----
-
-## Tech Stack
-
-Cursor
-
-Git
-
-GitHub
-
-Claude Pro
-
-ChatGPT
+- Decide priorities
+- Plan future sprints
+- Review architecture
+- Review design quality
+- Maintain documentation
+- Keep the project moving forward
+- End every response with actionable next steps
 
 ---
 
-## Folder Structure
+### Claude
 
-Current repository structure created during Sprint 1.
+Acts as:
 
----
+- Senior Software Engineer
+- Frontend Developer
+- UI/UX Designer
+- Implementation Partner
 
-## Concepts Already Explained
+Responsibilities:
 
-✔ Git basics
-
-✔ GitHub repository
-
-✔ Cursor installation
-
-✔ Documentation workflow
-
----
-
-## Known Problems
-
-None.
+- Generate production-quality code
+- Improve architecture
+- Maintain reusable components
+- Follow Summit Studio design standards
+- Explain code only when necessary
 
 ---
 
-## Parking Lot
+## Current Technology Stack
 
-Future businesses:
+- GitHub
+- Cursor
+- Claude Desktop Project
+- ChatGPT
+- Vercel
+- Next.js
+- Tailwind CSS
+- TypeScript
 
-* Climbing application
-* Hiking planner
-* Additional AI businesses under Monkey Ventures
+Domain:
+summitstudioagency.com
+
+Deployment:
+https://monkey-ventures.vercel.app/
 
 ---
 
-## Next Immediate Task
+## Current Architecture
 
-Define Summit Studio's customer and value proposition.
+MonkeyVentures/
+
+    projects/
+        summitstudio/
+            website-engine/
+
+The Website Engine is reusable software.
+
+Each business should simply provide:
+
+- business.ts
+- theme.ts
+
+Future businesses should never require a new codebase.
+
+---
+
+## Current Business Workflow
+
+Research Business
+
+↓
+
+Generate Website
+
+↓
+
+Review Website
+
+↓
+
+Deploy Demo
+
+↓
+
+Contact Owner
+
+↓
+
+Revise
+
+↓
+
+Sell Website
+
+↓
+
+Launch
+
+---
+
+## Current Status
+
+Completed
+
+- GitHub configured
+- Cursor installed
+- Claude Project created
+- Domain purchased
+- Vercel deployment working
+- Website Engine completed
+- Multi-business architecture implemented
+- Three landscaping businesses researched
+- Lead spreadsheet created
+- Cold call framework drafted
+
+Current Focus
+
+Turn the website engine into a portfolio-quality product and begin contacting real businesses.
+
+---
+
+## Development Philosophy
+
+- Build systems instead of one-off solutions.
+- Automate only after a manual process works.
+- Customers buy results, not AI.
+- Documentation is part of the product.
+- Every sprint should produce a tangible business asset.
+
+---
+
+## Communication Rules
+
+Always:
+
+- Continue the roadmap automatically.
+- Recommend the best option when appropriate.
+- Prioritize execution over discussion.
+- Keep documentation current.
+- Explain things simply.
+- Finish with the next sprint or actionable tasks.
