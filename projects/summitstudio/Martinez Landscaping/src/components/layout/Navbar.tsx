@@ -38,12 +38,12 @@ export function Navbar() {
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-colors duration-300',
         solid
-          ? 'border-b border-ink/5 bg-paper/85 backdrop-blur-md'
+          ? 'border-b border-foreground/5 bg-background/85 backdrop-blur-md'
           : 'border-b border-transparent bg-transparent',
       )}
     >
       <Container className="flex h-18 items-center justify-between py-3">
-        <a href="#top" aria-label={`${BUSINESS.name} — home`} className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber">
+        <a href="#top" aria-label={`${BUSINESS.name} — home`} className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
           <Logo invert={!solid} />
         </a>
 
@@ -55,7 +55,7 @@ export function Navbar() {
               href={link.href}
               className={cn(
                 'text-sm font-medium transition-colors hover:opacity-70',
-                solid ? 'text-ink' : 'text-sage-50',
+                solid ? 'text-foreground' : 'text-surface-50',
               )}
             >
               {link.label}
@@ -68,7 +68,7 @@ export function Navbar() {
             href={BUSINESS.phoneHref}
             className={cn(
               'inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:opacity-70',
-              solid ? 'text-pine' : 'text-sage-50',
+              solid ? 'text-primary' : 'text-surface-50',
             )}
           >
             <Phone className="h-4 w-4" />
@@ -86,8 +86,8 @@ export function Navbar() {
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           className={cn(
-            'grid h-11 w-11 place-items-center rounded-xl transition-colors lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber',
-            solid ? 'text-ink hover:bg-ink/5' : 'text-sage-50 hover:bg-white/10',
+            'grid h-11 w-11 place-items-center rounded-xl transition-colors lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent',
+            solid ? 'text-foreground hover:bg-foreground/5' : 'text-surface-50 hover:bg-white/10',
           )}
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -103,7 +103,7 @@ export function Navbar() {
             animate={reduce ? { opacity: 1 } : { opacity: 1, height: 'auto' }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, height: 0 }}
             transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-t border-ink/5 bg-paper lg:hidden"
+            className="overflow-hidden border-t border-foreground/5 bg-background lg:hidden"
           >
             <Container className="flex flex-col gap-1 py-4">
               {NAV_LINKS.map((link) => (
@@ -111,15 +111,15 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-base font-medium text-ink transition-colors hover:bg-sage-50"
+                  className="rounded-xl px-4 py-3 text-base font-medium text-foreground transition-colors hover:bg-surface-50"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="mt-2 flex flex-col gap-2 border-t border-ink/5 pt-4">
+              <div className="mt-2 flex flex-col gap-2 border-t border-foreground/5 pt-4">
                 <a
                   href={BUSINESS.phoneHref}
-                  className="inline-flex items-center gap-2 px-4 text-base font-semibold text-pine"
+                  className="inline-flex items-center gap-2 px-4 text-base font-semibold text-primary"
                 >
                   <Phone className="h-4 w-4" />
                   {BUSINESS.phone}

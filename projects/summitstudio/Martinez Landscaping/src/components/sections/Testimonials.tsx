@@ -17,11 +17,11 @@ export function Testimonials() {
             intro="We've earned most of our work the hard way — one well-kept property and one honest invoice at a time."
           />
           <Reveal delay={0.1}>
-            <div className="flex items-center gap-4 rounded-3xl border border-ink/5 bg-paper px-6 py-4 shadow-soft">
-              <div className="font-display text-4xl font-semibold text-pine">{BUSINESS.reviews.average}</div>
+            <div className="flex items-center gap-4 rounded-3xl border border-foreground/5 bg-background px-6 py-4 shadow-soft">
+              <div className="font-display text-4xl font-semibold text-primary">{BUSINESS.reviews.average}</div>
               <div>
                 <StarRating rating={BUSINESS.reviews.average} />
-                <p className="mt-1 text-sm text-mute">
+                <p className="mt-1 text-sm text-muted">
                   {BUSINESS.reviews.count} verified reviews
                 </p>
               </div>
@@ -33,21 +33,21 @@ export function Testimonials() {
         <div className="mt-12 columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={t.author} delay={(i % 3) * 0.06}>
-              <figure className="break-inside-avoid rounded-4xl border border-ink/5 bg-paper p-7 shadow-soft">
+              <figure className="break-inside-avoid rounded-4xl border border-foreground/5 bg-background p-7 shadow-soft">
                 <div className="flex items-center justify-between">
                   <StarRating rating={t.rating} />
-                  <Quote className="h-7 w-7 text-sage-100" aria-hidden="true" />
+                  <Quote className="h-7 w-7 text-surface-100" aria-hidden="true" />
                 </div>
-                <blockquote className="mt-4 text-[15px] leading-relaxed text-ink">
+                <blockquote className="mt-4 text-[15px] leading-relaxed text-foreground">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
-                <figcaption className="mt-5 flex items-center gap-3 border-t border-ink/5 pt-5">
-                  <span className="grid h-10 w-10 place-items-center rounded-full bg-pine/10 font-display text-sm font-semibold text-pine">
+                <figcaption className="mt-5 flex items-center gap-3 border-t border-foreground/5 pt-5">
+                  <span className="grid h-10 w-10 place-items-center rounded-full bg-primary/10 font-display text-sm font-semibold text-primary">
                     {t.author.charAt(0)}
                   </span>
                   <span>
-                    <span className="block text-sm font-semibold text-forest">{t.author}</span>
-                    <span className="block text-xs text-mute">
+                    <span className="block text-sm font-semibold text-secondary">{t.author}</span>
+                    <span className="block text-xs text-muted">
                       {t.location} · {t.service}
                     </span>
                   </span>

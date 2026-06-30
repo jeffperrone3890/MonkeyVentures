@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { THEME } from '@/data/theme';
 
 type Variant = 'primary' | 'dark' | 'outline' | 'ghost' | 'onDark';
 type Size = 'sm' | 'md' | 'lg';
@@ -18,21 +19,23 @@ type ButtonAsLink = BaseProps &
 
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
-const base =
-  'inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 ease-out-expo focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60';
+const base = cn(
+  'inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 ease-out-expo focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60',
+  THEME.buttonStyle.radius,
+);
 
 const variants: Record<Variant, string> = {
-  // The single boldest action on the page — golden-hour amber.
+  // The single boldest action on the page — golden-hour accent.
   primary:
-    'bg-amber text-forest shadow-soft hover:bg-amber-soft hover:shadow-lift hover:-translate-y-0.5 focus-visible:ring-amber focus-visible:ring-offset-paper',
+    'bg-accent text-secondary shadow-soft hover:bg-accent-soft hover:shadow-lift hover:-translate-y-0.5 focus-visible:ring-accent focus-visible:ring-offset-background',
   dark:
-    'bg-pine text-sage-50 shadow-soft hover:bg-forest hover:-translate-y-0.5 focus-visible:ring-pine focus-visible:ring-offset-paper',
+    'bg-primary text-surface-50 shadow-soft hover:bg-secondary hover:-translate-y-0.5 focus-visible:ring-primary focus-visible:ring-offset-background',
   outline:
-    'border border-pine/25 bg-transparent text-pine hover:border-pine/50 hover:bg-pine/5 focus-visible:ring-pine focus-visible:ring-offset-paper',
+    'border border-primary/25 bg-transparent text-primary hover:border-primary/50 hover:bg-primary/5 focus-visible:ring-primary focus-visible:ring-offset-background',
   ghost:
-    'bg-transparent text-pine hover:bg-pine/5 focus-visible:ring-pine focus-visible:ring-offset-paper',
+    'bg-transparent text-primary hover:bg-primary/5 focus-visible:ring-primary focus-visible:ring-offset-background',
   onDark:
-    'bg-sage-50 text-forest shadow-soft hover:bg-white hover:-translate-y-0.5 focus-visible:ring-amber focus-visible:ring-offset-forest',
+    'bg-surface-50 text-secondary shadow-soft hover:bg-white hover:-translate-y-0.5 focus-visible:ring-accent focus-visible:ring-offset-secondary',
 };
 
 const sizes: Record<Size, string> = {

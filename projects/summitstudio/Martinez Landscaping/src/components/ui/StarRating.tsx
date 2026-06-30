@@ -13,7 +13,7 @@ export function StarRating({ rating, className, size = 16 }: StarRatingProps) {
   const rounded = Math.round(rating);
   return (
     <span
-      className={cn('inline-flex items-center gap-0.5 text-amber', className)}
+      className={cn('inline-flex items-center gap-0.5 text-accent', className)}
       role="img"
       aria-label={`${rating} out of 5 stars`}
     >

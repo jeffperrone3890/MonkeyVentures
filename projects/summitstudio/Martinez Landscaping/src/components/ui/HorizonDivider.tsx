@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { THEME } from '@/data/theme';
 
 interface HorizonDividerProps {
   /** Fill color of the curve — should match the section it leads into. */
@@ -13,7 +14,7 @@ interface HorizonDividerProps {
  * transition between sections. Decorative, so hidden from assistive tech.
  * Used sparingly (one or two per page) so it stays memorable.
  */
-export function HorizonDivider({ fill = '#12241B', flip = false, className }: HorizonDividerProps) {
+export function HorizonDivider({ fill = THEME.colors.secondary, flip = false, className }: HorizonDividerProps) {
   return (
     <div className={cn('pointer-events-none -mb-px w-full overflow-hidden leading-none', className)} aria-hidden="true">
       <svg

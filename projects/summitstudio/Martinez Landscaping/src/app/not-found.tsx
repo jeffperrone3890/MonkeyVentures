@@ -14,16 +14,16 @@ export const metadata = {
  */
 export default function NotFound() {
   return (
-    <section className="flex min-h-[80svh] items-center bg-paper">
+    <section className="flex min-h-[80svh] items-center bg-background">
       <div className="mx-auto w-full max-w-content px-5 py-24 text-center sm:px-8">
         <div className="mx-auto mb-8 flex justify-center">
           <Logo />
         </div>
-        <p className="font-display text-display-lg leading-none text-forest">404</p>
-        <h1 className="mt-4 font-display text-heading text-pine">
+        <p className="font-display text-display-lg leading-none text-secondary">404</p>
+        <h1 className="mt-4 font-display text-heading text-primary">
           We couldn&apos;t find that page
         </h1>
-        <p className="mx-auto mt-4 max-w-md text-mute">
+        <p className="mx-auto mt-4 max-w-md text-muted">
           The page you&apos;re after may have moved or never existed. Let&apos;s get you back to
           solid ground.
         </p>
@@ -35,9 +35,9 @@ export default function NotFound() {
             Call {BUSINESS.phone}
           </Button>
         </div>
-        <p className="mt-10 text-sm text-mute">
+        <p className="mt-10 text-sm text-muted">
           Or jump straight to a{' '}
-          <Link href="/#contact" className="font-semibold text-fern underline-offset-4 hover:underline">
+          <Link href="/#contact" className="font-semibold text-highlight underline-offset-4 hover:underline">
             free estimate
           </Link>
           .

@@ -35,7 +35,7 @@ export function SectionHeading({
         <span
           className={cn(
             'inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em]',
-            invert ? 'text-amber-soft' : 'text-fern',
+            invert ? 'text-accent-soft' : 'text-highlight',
           )}
         >
           <Sprig className="h-4 w-4" />
@@ -46,7 +46,7 @@ export function SectionHeading({
         <h2
           className={cn(
             'mt-4 font-display text-heading font-semibold',
-            invert ? 'text-sage-50' : 'text-forest',
+            invert ? 'text-surface-50' : 'text-secondary',
           )}
         >
           {title}
@@ -57,7 +57,7 @@ export function SectionHeading({
           <p
             className={cn(
               'mt-4 text-lg leading-relaxed',
-              invert ? 'text-sage/80' : 'text-mute',
+              invert ? 'text-surface/80' : 'text-muted',
             )}
           >
             {intro}

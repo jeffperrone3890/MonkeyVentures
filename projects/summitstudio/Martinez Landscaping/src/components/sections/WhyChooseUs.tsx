@@ -11,11 +11,11 @@ export function WhyChooseUs() {
       <Container>
         {/* Stats band */}
         <Reveal>
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-4xl bg-sage-100 shadow-soft lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-4xl bg-surface-100 shadow-soft lg:grid-cols-4">
             {STATS.map((stat) => (
-              <div key={stat.label} className="bg-paper px-6 py-8 text-center">
-                <div className="font-display text-4xl font-semibold text-pine">{stat.value}</div>
-                <div className="mt-1.5 text-sm text-mute">{stat.label}</div>
+              <div key={stat.label} className="bg-background px-6 py-8 text-center">
+                <div className="font-display text-4xl font-semibold text-primary">{stat.value}</div>
+                <div className="mt-1.5 text-sm text-muted">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -33,14 +33,14 @@ export function WhyChooseUs() {
             <div className="mt-10 grid gap-5 sm:grid-cols-2">
               {BENEFITS.map((benefit, i) => (
                 <Reveal key={benefit.title} delay={i * 0.06}>
-                  <div className="group h-full rounded-3xl border border-ink/5 bg-paper p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
-                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-pine/10 text-pine transition-colors group-hover:bg-pine group-hover:text-sage-50">
+                  <div className="group h-full rounded-3xl border border-foreground/5 bg-background p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-surface-50">
                       <benefit.icon className="h-5.5 w-5.5" />
                     </span>
-                    <h3 className="mt-4 font-display text-lg font-semibold text-forest">
+                    <h3 className="mt-4 font-display text-lg font-semibold text-secondary">
                       {benefit.title}
                     </h3>
-                    <p className="mt-2 text-[15px] leading-relaxed text-mute">
+                    <p className="mt-2 text-[15px] leading-relaxed text-muted">
                       {benefit.description}
                     </p>
                   </div>
@@ -59,12 +59,12 @@ export function WhyChooseUs() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 to-transparent" />
             </div>
 
-            <div className="absolute -bottom-6 -left-4 max-w-[15rem] rounded-3xl border border-ink/5 bg-paper/95 p-5 shadow-lift backdrop-blur sm:-left-8">
-              <p className="font-display text-3xl font-semibold text-pine">{BUSINESS.credentials.certification.split(' on')[0]}</p>
-              <p className="mt-1 text-sm text-mute">on staff — guiding every prune and removal.</p>
+            <div className="absolute -bottom-6 -left-4 max-w-[15rem] rounded-3xl border border-foreground/5 bg-background/95 p-5 shadow-lift backdrop-blur sm:-left-8">
+              <p className="font-display text-3xl font-semibold text-primary">{BUSINESS.credentials.certification.split(' on')[0]}</p>
+              <p className="mt-1 text-sm text-muted">on staff — guiding every prune and removal.</p>
             </div>
           </Reveal>
         </div>

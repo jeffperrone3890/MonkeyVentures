@@ -8,9 +8,9 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const toneStyles: Record<NonNullable<SectionProps['tone']>, string> = {
-  paper: 'bg-paper text-ink',
-  sage: 'bg-sage-50 text-ink',
-  forest: 'bg-forest text-sage-50',
+  paper: 'bg-background text-foreground',
+  sage: 'bg-surface-50 text-foreground',
+  forest: 'bg-secondary text-surface-50',
 };
 
 /**

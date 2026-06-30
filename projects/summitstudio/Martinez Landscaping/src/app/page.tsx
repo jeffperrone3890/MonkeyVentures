@@ -7,6 +7,7 @@ import { ServiceArea } from '@/components/sections/ServiceArea';
 import { CTA } from '@/components/sections/CTA';
 import { Contact } from '@/components/sections/Contact';
 import { HorizonDivider } from '@/components/ui/HorizonDivider';
+import { THEME } from '@/data/theme';
 
 /**
  * Home — the single marketing page.
@@ -22,7 +23,7 @@ import { HorizonDivider } from '@/components/ui/HorizonDivider';
  *   8. Contact ......... the estimate form (the conversion goal)
  *
  * The HorizonDivider — our signature landscape-contour element — leads the
- * eye from the lighter ServiceArea band into the deep-forest CTA band.
+ * eye from the lighter ServiceArea band into the dark secondary-color CTA band.
  *
  * Page-level <head> metadata is inherited from src/app/layout.tsx.
  */
@@ -35,7 +36,7 @@ export default function HomePage() {
       <Gallery />
       <Testimonials />
       <ServiceArea />
-      <HorizonDivider fill="#12241B" />
+      <HorizonDivider fill={THEME.colors.secondary} />
       <CTA />
       <Contact />
     </>
