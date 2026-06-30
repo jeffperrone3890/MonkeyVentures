@@ -33,7 +33,7 @@ import {
   } from 'lucide-react';
   import type {
     Benefit,
-    GalleryItem,
+    GalleryProject,
     Service,
     ServiceTown,
     Stat,
@@ -266,18 +266,45 @@ import {
     },
   ];
   
-  export const GALLERY: GalleryItem[] = [
-    { src: '/images/gallery/g1.jpg', alt: 'Renovated front yard with fresh plantings and clean bed lines', caption: 'Front yard renovation', category: 'Design', tall: true },
-    { src: '/images/gallery/g2.jpg', alt: 'Paver patio with built-in fire pit', caption: 'Paver patio & fire pit', category: 'Hardscaping' },
-    { src: '/images/gallery/g3.jpg', alt: 'Crew safely removing a mature oak near a house', caption: 'Mature oak removal', category: 'Tree Work' },
-    { src: '/images/gallery/g4.jpg', alt: 'Redesigned garden bed with layered perennials', caption: 'Garden bed redesign', category: 'Design', tall: true },
-    { src: '/images/gallery/g5.jpg', alt: 'Stone retaining wall holding a graded slope', caption: 'Retaining wall build', category: 'Hardscaping' },
-    { src: '/images/gallery/g6.jpg', alt: 'Manicured full property at golden hour', caption: 'Full property maintenance', category: 'Maintenance', tall: true },
-    { src: '/images/gallery/g7.jpg', alt: 'Stump grinder removing a tree stump', caption: 'Stump grinding', category: 'Tree Work' },
-    { src: '/images/gallery/g8.jpg', alt: 'Freshly installed sod lawn', caption: 'New sod installation', category: 'Lawn Care' },
+  /**
+   * Before/after showcase projects. Each entry needs a real `before` and
+   * `after` photo of the *same* property — until that photography exists,
+   * these pair up two of the existing single gallery shots per project so
+   * the slider has something real to compare. Replace `before`/`after`
+   * with the client's actual paired photography when it's available;
+   * nothing else about this data shape, or the component that renders it,
+   * needs to change.
+   */
+  export const GALLERY: GalleryProject[] = [
+    {
+      slug: 'front-yard-design',
+      title: 'Front yard renovation',
+      category: 'Design',
+      before: { src: '/images/gallery/g4.jpg', alt: 'Front yard before the renovation' },
+      after: { src: '/images/gallery/g1.jpg', alt: 'Renovated front yard with fresh plantings and clean bed lines' },
+    },
+    {
+      slug: 'paver-patio',
+      title: 'Paver patio & fire pit',
+      category: 'Hardscaping',
+      before: { src: '/images/gallery/g5.jpg', alt: 'Backyard before the patio was built' },
+      after: { src: '/images/gallery/g2.jpg', alt: 'Paver patio with built-in fire pit' },
+    },
+    {
+      slug: 'oak-removal',
+      title: 'Mature oak removal',
+      category: 'Tree Work',
+      before: { src: '/images/gallery/g3.jpg', alt: 'Mature oak before removal' },
+      after: { src: '/images/gallery/g7.jpg', alt: 'Cleared stump after the oak was removed and ground' },
+    },
+    {
+      slug: 'lawn-renewal',
+      title: 'Full property lawn renewal',
+      category: 'Lawn Care',
+      before: { src: '/images/gallery/g6.jpg', alt: 'Lawn before renewal' },
+      after: { src: '/images/gallery/g8.jpg', alt: 'Freshly installed sod lawn' },
+    },
   ];
-  
-  export const GALLERY_CATEGORIES = ['All', 'Design', 'Hardscaping', 'Tree Work', 'Maintenance', 'Lawn Care'] as const;
   
   export const SERVICE_TOWNS: ServiceTown[] = [
     { name: 'Wilmington' },

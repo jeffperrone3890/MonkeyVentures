@@ -36,13 +36,17 @@ export interface Testimonial {
   service: string;
 }
 
-export interface GalleryItem {
+export interface BeforeAfterImage {
   src: string;
   alt: string;
-  caption: string;
+}
+
+export interface GalleryProject {
+  slug: string;
+  title: string;
   category: string;
-  /** Render hint for the masonry grid. */
-  tall?: boolean;
+  before: BeforeAfterImage;
+  after: BeforeAfterImage;
 }
 
 export interface ServiceTown {
