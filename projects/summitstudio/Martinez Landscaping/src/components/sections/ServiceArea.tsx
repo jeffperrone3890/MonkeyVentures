@@ -15,7 +15,7 @@ export function ServiceArea() {
           <div>
             <SectionHeading
               eyebrow="Where we work"
-              title="Proudly serving New Castle County."
+              title={`Proudly serving ${BUSINESS.address.county}.`}
               intro={`Based in ${BUSINESS.address.city}, our crews cover the county and the towns around it. If you're nearby and don't see your town, just ask — chances are we're already in your neighborhood.`}
             />
 
@@ -75,7 +75,7 @@ export function ServiceArea() {
               {/* Coverage badge */}
               <div className="absolute bottom-5 left-5 rounded-2xl bg-sage-50/10 px-4 py-2.5 backdrop-blur">
                 <p className="text-xs font-semibold uppercase tracking-wider text-amber-soft">Coverage radius</p>
-                <p className="text-sm text-sage-50">All of New Castle County</p>
+                <p className="text-sm text-sage-50">All of {BUSINESS.address.county}</p>
               </div>
             </div>
           </Reveal>

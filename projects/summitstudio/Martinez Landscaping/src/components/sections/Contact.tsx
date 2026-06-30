@@ -95,14 +95,14 @@ export function Contact() {
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-pine/10 text-pine"><MapPin className="h-5 w-5" /></span>
                 <span>
                   <span className="block text-xs font-semibold uppercase tracking-wider text-mute">Service area</span>
-                  <span className="block text-sm font-medium text-forest">New Castle County, DE</span>
+                  <span className="block text-sm font-medium text-forest">{BUSINESS.address.county}, {BUSINESS.address.region}</span>
                 </span>
               </li>
             </ul>
 
             <p className="mt-6 inline-flex items-center gap-2 text-sm text-mute">
               <ShieldCheck className="h-4 w-4 text-fern" />
-              {BUSINESS.credentials.insuranceAmount} · Licensed &amp; insured in Delaware
+              {BUSINESS.credentials.insuranceAmount} · Licensed &amp; insured in {BUSINESS.address.regionName}
             </p>
           </div>
 

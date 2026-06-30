@@ -3,7 +3,7 @@ import { Fraunces, Hanken_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { BUSINESS, SERVICE_TOWNS } from '@/data/business';
+import { BUSINESS, SEO_KEYWORDS, SERVICE_TOWNS } from '@/data/business';
 
 // Display: a soft, optical serif — handcrafted and established.
 const fraunces = Fraunces({
@@ -23,19 +23,11 @@ const hanken = Hanken_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(BUSINESS.url),
   title: {
-    default: `${BUSINESS.name} | Landscaping & Tree Care in New Castle County, DE`,
+    default: `${BUSINESS.name} | Landscaping & Tree Care in ${BUSINESS.address.county}, ${BUSINESS.address.region}`,
     template: `%s | ${BUSINESS.shortName}`,
   },
   description: BUSINESS.description,
-  keywords: [
-    'landscaping New Castle County',
-    'tree removal Wilmington DE',
-    'lawn care Delaware',
-    'landscape design Newark DE',
-    'tree trimming',
-    'hardscaping patios',
-    'emergency tree service Delaware',
-  ],
+  keywords: SEO_KEYWORDS,
   applicationName: BUSINESS.name,
   authors: [{ name: BUSINESS.name }],
   creator: 'Summit Studio',

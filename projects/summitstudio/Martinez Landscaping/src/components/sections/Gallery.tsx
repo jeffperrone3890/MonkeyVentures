@@ -7,7 +7,7 @@ import { X, ChevronLeft, ChevronRight, Plus } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { GALLERY, GALLERY_CATEGORIES } from '@/data/business';
+import { BUSINESS, GALLERY, GALLERY_CATEGORIES } from '@/data/business';
 import { cn } from '@/lib/utils';
 
 export function Gallery() {
@@ -49,7 +49,7 @@ export function Gallery() {
       <Container>
         <SectionHeading
           eyebrow="Our work"
-          title="Real Delaware properties, transformed."
+          title={`Real ${BUSINESS.address.regionName} properties, transformed.`}
           intro="A look at recent projects across the county — design installs, hardscaping, tree work, and the lawns we keep sharp all season."
         />
 

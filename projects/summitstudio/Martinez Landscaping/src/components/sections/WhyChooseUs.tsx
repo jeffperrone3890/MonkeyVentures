@@ -25,7 +25,7 @@ export function WhyChooseUs() {
           {/* Copy + benefits */}
           <div>
             <SectionHeading
-              eyebrow="Why Martinez"
+              eyebrow={`Why ${BUSINESS.logo.primary}`}
               title="The crew you'll actually want to keep."
               intro="Anyone can mow a lawn. We're built for the long relationship — reliable, accountable, and genuinely good at the craft. Here's what that looks like."
             />
@@ -54,7 +54,7 @@ export function WhyChooseUs() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-5xl shadow-lift">
               <Image
                 src="/images/about.jpg"
-                alt="The Martinez Landscaping crew on a job site"
+                alt={`The ${BUSINESS.shortName} crew on a job site`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

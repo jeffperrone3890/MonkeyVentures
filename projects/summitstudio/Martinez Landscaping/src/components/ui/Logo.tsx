@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { BUSINESS } from '@/data/business';
 
 interface LogoProps {
   className?: string;
@@ -36,7 +37,7 @@ export function Logo({ className, invert = false }: LogoProps) {
             invert ? 'text-sage-50' : 'text-forest',
           )}
         >
-          Martinez
+          {BUSINESS.logo.primary}
         </span>
         <span
           className={cn(
@@ -44,7 +45,7 @@ export function Logo({ className, invert = false }: LogoProps) {
             invert ? 'text-amber-soft' : 'text-fern',
           )}
         >
-          Landscaping &amp; Tree
+          {BUSINESS.logo.secondary}
         </span>
       </span>
     </span>

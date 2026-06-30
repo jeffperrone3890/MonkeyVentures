@@ -26,7 +26,7 @@ export function Hero() {
       <div className="absolute inset-0 -z-10">
         <Image
           src="/images/hero.jpg"
-          alt="A professionally landscaped property at golden hour in New Castle County, Delaware"
+          alt={`A professionally landscaped property at golden hour in ${BUSINESS.address.county}, ${BUSINESS.address.regionName}`}
           fill
           priority
           sizes="100vw"
@@ -44,7 +44,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-sage-50/20 bg-sage-50/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-sage-50 backdrop-blur-sm"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-amber" />
-            Serving New Castle County since {BUSINESS.foundedYear}
+            Serving {BUSINESS.address.county} since {BUSINESS.foundedYear}
           </motion.span>
 
           <motion.h1

@@ -49,6 +49,14 @@ export const BUSINESS = {
     'Full-service landscaping and ISA-certified tree care in New Castle County, Delaware. Lawn maintenance, landscape design, tree removal, hardscaping, and 24/7 storm response. Free estimates within 24 hours.',
   foundedYear: 2009,
 
+  // Wordmark text for the Logo component — the literal lines of the
+  // two-line wordmark, since a logo's exact text is business-specific and
+  // doesn't reliably derive from `name` for every business.
+  logo: {
+    primary: 'Martinez',
+    secondary: 'Landscaping & Tree',
+  },
+
   // Contact
   phone: '(302) 555-0147',
   phoneHref: 'tel:+13025550147',
@@ -60,6 +68,8 @@ export const BUSINESS = {
     street: '2400 Greenbank Road',
     city: 'Wilmington',
     region: 'DE',
+    regionName: 'Delaware',
+    county: 'New Castle County',
     postalCode: '19808',
     country: 'US',
   },
@@ -96,6 +106,17 @@ export const BUSINESS = {
     count: 187,
   },
 } as const;
+
+/** SEO keyword targets — used in <head> metadata. Business- and location-specific. */
+export const SEO_KEYWORDS = [
+  `landscaping ${BUSINESS.address.county}`,
+  `tree removal ${BUSINESS.address.city} ${BUSINESS.address.region}`,
+  `lawn care ${BUSINESS.address.regionName}`,
+  'landscape design Newark DE',
+  'tree trimming',
+  'hardscaping patios',
+  `emergency tree service ${BUSINESS.address.regionName}`,
+];
 
 export const SERVICES: Service[] = [
   {
