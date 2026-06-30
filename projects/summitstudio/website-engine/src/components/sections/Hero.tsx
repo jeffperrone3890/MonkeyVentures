@@ -2,10 +2,9 @@
 
 import Image from 'next/image';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { Phone, ArrowRight, ShieldCheck, Clock, MapPin } from 'lucide-react';
+import { Phone, ArrowRight, ShieldCheck, Star, MapPin } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { StarRating } from '@/components/ui/StarRating';
 import { Reveal } from '@/components/ui/Reveal';
 import { BUSINESS } from '@/data/business';
 import { THEME } from '@/data/theme';
@@ -24,7 +23,7 @@ export function Hero() {
 
   return (
     <section id="top" className="relative isolate flex min-h-[78svh] items-center overflow-hidden bg-secondary">
-      {/* Faint signature contour texture — same motif used on the ServiceArea panel */}
+      {/* Signature contour texture */}
       <svg className="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-[0.07]" viewBox="0 0 400 300" fill="none" aria-hidden="true">
         {[0, 1, 2, 3, 4, 5, 6].map((n) => (
           <path
@@ -46,50 +45,61 @@ export function Hero() {
             animate="show"
             className="lg:col-span-6 xl:col-span-5"
           >
-            {/* Trust strip — proof first, before any persuasion copy */}
+            {/* Star rating + trust badges */}
             <motion.div
               variants={item}
-              className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-surface-50/90"
+              className="flex flex-wrap items-center gap-x-5 gap-y-2.5 text-sm"
             >
-              <span className="inline-flex items-center gap-2">
-                <StarRating rating={BUSINESS.reviews.average} />
-                <span className="font-semibold text-surface-50">{BUSINESS.reviews.average}</span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-50/10 px-3 py-1.5 text-surface-50">
+                <Star className="h-4 w-4 fill-accent text-accent" aria-hidden="true" />
+                <span className="font-semibold">{BUSINESS.reviews.average}</span>
                 <span className="text-surface-50/70">({BUSINESS.reviews.count} reviews)</span>
               </span>
-              <span className="hidden h-4 w-px bg-surface-50/25 sm:block" />
-              <span className="inline-flex items-center gap-2">
-                <ShieldCheck className="h-4.5 w-4.5 text-accent-soft" />
+              <span className="inline-flex items-center gap-1.5 text-surface-50/80">
+                <ShieldCheck className="h-4 w-4 text-accent-soft" />
                 Licensed &amp; insured
-              </span>
-              <span className="hidden h-4 w-px bg-surface-50/25 sm:block" />
-              <span className="inline-flex items-center gap-2">
-                <Clock className="h-4.5 w-4.5 text-accent-soft" />
-                {BUSINESS.emergencyNote}
               </span>
             </motion.div>
 
+            {/* Tagline as the primary headline — emotionally resonant, per-business */}
             <motion.h1
               variants={item}
-              className="mt-8 font-display text-display font-semibold text-surface-50"
+              className="mt-6 font-display text-display font-semibold text-surface-50"
             >
-              Lawn &amp; landscape care, quoted within 24 hours.
+              {BUSINESS.tagline}
             </motion.h1>
 
+            {/* Compelling subhead: addresses the real concerns — reliability, no surprises, who's actually showing up */}
             <motion.p variants={item} className="mt-5 max-w-xl text-lg leading-relaxed text-surface-50/85">
-              The same trusted crew for every property service we offer — serving{' '}
-              {BUSINESS.address.county} since {BUSINESS.foundedYear}.
+              The same trusted crew — every visit, every job. Free written estimates
+              within 24 hours, no pressure, and no surprises on the invoice.
+              Serving {BUSINESS.address.county} since {BUSINESS.foundedYear}.
             </motion.p>
 
-            <motion.div variants={item} className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <Button href="#contact" size="lg">
-                Get My Free Estimate
-                <ArrowRight className="h-5 w-5" />
-              </Button>
+            {/* CTAs — primary is visually dominant via glow wrapper */}
+            <motion.div variants={item} className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="relative inline-flex shrink-0">
+                {/* Subtle glow behind the primary button to increase visual weight */}
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-full opacity-60 blur-xl"
+                  style={{ background: THEME.colors.accent.DEFAULT }}
+                  aria-hidden="true"
+                />
+                <Button href="#contact" size="lg" className="relative">
+                  Get My Free Estimate
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
+              </div>
               <Button href={BUSINESS.phoneHref} variant="outlineOnDark" size="lg">
                 <Phone className="h-5 w-5" />
                 Call Now
               </Button>
             </motion.div>
+
+            {/* Micro-copy beneath the CTAs for final hesitation removal */}
+            <motion.p variants={item} className="mt-4 text-sm text-surface-50/50">
+              Free estimate · No obligation · Response within 24 hours
+            </motion.p>
           </motion.div>
 
           {/* Featured visual */}
@@ -114,14 +124,14 @@ function HeroVisual() {
       <div className="relative aspect-[16/10] overflow-hidden rounded-4xl shadow-lift lg:aspect-[4/5] lg:rounded-5xl">
         <Image
           src="/images/hero.jpg"
-          alt={`A professionally landscaped property at golden hour in ${BUSINESS.address.county}, ${BUSINESS.address.regionName}`}
+          alt={`A professionally landscaped property in ${BUSINESS.address.county}, ${BUSINESS.address.regionName}`}
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 45vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary/55 via-transparent to-transparent" />
-        <div className="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm font-medium text-surface-50 backdrop-blur">
+        <div className="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-secondary/65 px-4 py-2 text-sm font-medium text-surface-50 backdrop-blur-sm">
           <MapPin className="h-4 w-4 text-accent-soft" />
           {BUSINESS.address.city}, {BUSINESS.address.region}
         </div>

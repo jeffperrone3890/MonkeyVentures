@@ -122,6 +122,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'lawn-maintenance',
     title: 'Lawn Maintenance',
+    displayTitle: 'A Sharp Lawn on a Schedule You Control',
     summary: 'Weekly mowing from the same crew, with no contract to lock you in.',
     details:
       'Weekly or bi-weekly mowing in Newark, Wilmington, and New Castle County — mowed, edged, trimmed, and blown down every visit by the same crew. Skip a week for vacation or cancel anytime with a phone call.',
@@ -132,6 +133,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'landscaping',
     title: 'Landscaping',
+    displayTitle: 'Beds and Plantings That Look Right Every Season',
     summary: 'Bed design, plant selection, and mulch that holds up through Delaware seasons.',
     details:
       'Bed design and refresh, plant selection from local growers, and clean install work — priced by bed or by yard, with planting timed for spring or fall.',
@@ -142,6 +144,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'hardscaping',
     title: 'Hardscaping',
+    displayTitle: 'Patios Built to Stay Level for Decades',
     summary: 'Paver patios and walkways built on a properly compacted base.',
     details:
       'Paver patios and hardscape installation across Delaware — site plan and layout, excavation, a 6-inch compacted base, and pavers or stone set and sealed to last through winters.',
@@ -152,6 +155,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'fertilization',
     title: 'Fertilization',
+    displayTitle: 'Turf That Stays Thick Through Delaware Winters',
     summary: 'A 6-step seasonal program built for Delaware lawns.',
     details:
       'A 6-visit-per-year granular fertilization program timed to the Delaware growing season, including a soil sample and crabgrass and broadleaf weed control along the way.',
@@ -162,6 +166,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'pressure-washing',
     title: 'Pressure Washing',
+    displayTitle: 'Driveways and Surfaces That Look New Again',
     summary: 'Soft-wash and power-wash cleaning for driveways, patios, and siding.',
     details:
       'Pressure washing in Newark, Wilmington, and New Castle County — walk and assess, pre-treat, wash and rinse, then a final inspection. Soft-wash available where power-washing would damage the surface.',
@@ -172,6 +177,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'snow-removal',
     title: 'Snow Removal',
+    displayTitle: 'Clear and Safe Before You Leave Home',
     summary: 'Commercial snow plowing with 24/7 storm monitoring.',
     details:
       'Commercial snow plowing and ice management across New Castle County — storm monitoring, plowing at the trigger depth, and salting, with a fleet ready for whatever the season brings.',

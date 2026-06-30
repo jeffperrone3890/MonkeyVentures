@@ -119,6 +119,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'yard-maintenance-cleanup',
     title: 'Yard Maintenance & Cleanup',
+    displayTitle: 'A Consistently Well-Kept Property, Every Season',
     summary: 'Proactive upkeep that keeps residential and commercial properties looking their best.',
     details:
       'Regular yard maintenance and seasonal cleanups for homeowners and businesses across New Castle County — proactive scheduling so debris, growth, and seasonal mess never get ahead of your property.',
@@ -129,6 +130,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'turf-management',
     title: 'Turf Management',
+    displayTitle: 'Healthy, Even Turf That Stays Sharp All Season',
     summary: 'Mowing and turf health programs built for Delaware lawns.',
     details:
       'Ongoing turf management — mowing, edging, and the agronomy behind a consistently healthy lawn, scheduled reliably through the growing season.',
@@ -139,6 +141,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'tree-shrub-care',
     title: 'Tree & Shrub Care',
+    displayTitle: 'Trees and Shrubs Shaped to Look Good and Stay Healthy',
     summary: 'Pruning and care that keeps trees and shrubs healthy and well-shaped.',
     details:
       'Tree and shrub care for ornamental and established plantings — pruning, shaping, and health checks as part of a proactive landscape plan.',
@@ -149,6 +152,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'pond-storm-water-management',
     title: 'Pond & Storm Water Management',
+    displayTitle: 'Water Features and Drainage Managed Right',
     summary: 'Keeping water features and drainage systems functioning the way they should.',
     details:
       'Pond and storm water management for residential and commercial properties — a service area that sets PQ apart from typical lawn-only providers.',
@@ -159,6 +163,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'landscape-enhancement',
     title: 'Landscape Enhancement',
+    displayTitle: 'Curb Appeal That Gets Noticed',
     summary: 'Proactive improvements that raise curb appeal over time.',
     details:
       'Complete landscape enhancement services — proactive solutions, not just reactive maintenance, aimed at a well-tended look that holds up season after season.',
@@ -169,6 +174,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'snow-ice-management',
     title: 'Snow & Ice Management',
+    displayTitle: 'Clear and Safe Before Business Opens',
     summary: 'Full-fleet snow and ice response for commercial properties.',
     details:
       'Snow removal and hauling, ice removal, salting, and snow blowing and shoveling for commercial properties, industrial sites, retail locations, and shopping centers — backed by a fleet of full-sized plows, loaders, and salt trucks.',
@@ -179,6 +185,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'lawn-care',
     title: 'Lawn Care',
+    displayTitle: 'A Lawn That Stays Green, Even, and Thick',
     summary: 'The day-to-day care that keeps a lawn thick, even, and healthy.',
     details:
       'Core lawn care for homeowners and businesses — the recurring service that keeps turf healthy between larger seasonal projects.',
@@ -189,6 +196,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'weed-control',
     title: 'Weed Control',
+    displayTitle: 'Clean Beds and Turf Without the Weeds',
     summary: 'Targeted treatment to keep weeds out of healthy turf.',
     details:
       'Weed control treatment as part of an environmentally conscious turf program, aimed at healthy grass rather than blanket chemical use.',

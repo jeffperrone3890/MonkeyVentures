@@ -7,6 +7,7 @@ import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
+import { Reveal } from '@/components/ui/Reveal';
 import { StarRating } from '@/components/ui/StarRating';
 import { BUSINESS, SERVICES } from '@/data/business';
 import { THEME } from '@/data/theme';
@@ -68,23 +69,34 @@ export function Contact() {
           {/* Info column */}
           <div className="lg:col-span-5">
             <SectionHeading
-              eyebrow="Get a free estimate"
-              title="Tell us about your project."
-              intro="Fill out the form and we'll get back to you within 24 hours with a clear, written estimate. Prefer to talk? Call or text anytime."
+              eyebrow="Free estimate"
+              title="Let's talk about your property."
+              intro="We make it simple — fill out the form or call us directly. You'll have a clear, written estimate within 24 hours. No pressure, no obligation."
             />
 
-            <ul className="mt-8 space-y-4">
-              <li>
-                <a href={BUSINESS.phoneHref} className="group flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary"><Phone className="h-5 w-5" /></span>
-                  <span>
-                    <span className="block text-xs font-semibold uppercase tracking-wider text-muted">Call or text</span>
-                    <span className="block font-semibold text-secondary">{BUSINESS.phone}</span>
+            {/* Prominent phone CTA — the easiest conversion path for trade businesses */}
+            <Reveal delay={0.05}>
+              <a
+                href={BUSINESS.phoneHref}
+                className="group mt-8 flex items-center gap-4 rounded-3xl border border-foreground/5 bg-background p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-lift"
+                aria-label={`Call ${BUSINESS.shortName} at ${BUSINESS.phone}`}
+              >
+                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-surface-50">
+                  <Phone className="h-6 w-6" />
+                </span>
+                <span className="flex-1">
+                  <span className="block text-xs font-semibold uppercase tracking-wider text-muted">Call or text directly</span>
+                  <span className="mt-0.5 block text-2xl font-bold tabular-nums text-secondary">
+                    {BUSINESS.phone}
                   </span>
-                </a>
-              </li>
+                  <span className="block text-xs text-muted">Tap to call · Available {BUSINESS.hours[0].day}</span>
+                </span>
+              </a>
+            </Reveal>
+
+            <ul className="mt-3 space-y-3">
               <li>
-                <a href={BUSINESS.emailHref} className="group flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
+                <a href={BUSINESS.emailHref} className="group flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary"><Mail className="h-5 w-5" /></span>
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-wider text-muted">Email</span>
@@ -92,14 +104,14 @@ export function Contact() {
                   </span>
                 </a>
               </li>
-              <li className="flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-6 shadow-soft">
+              <li className="flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-5 shadow-soft">
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary"><Clock className="h-5 w-5" /></span>
                 <span>
                   <span className="block text-xs font-semibold uppercase tracking-wider text-muted">Hours</span>
                   <span className="block text-sm font-medium text-secondary">{BUSINESS.hours[0].day}: {BUSINESS.hours[0].time}</span>
                 </span>
               </li>
-              <li className="flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-6 shadow-soft">
+              <li className="flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-5 shadow-soft">
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary"><MapPin className="h-5 w-5" /></span>
                 <span>
                   <span className="block text-xs font-semibold uppercase tracking-wider text-muted">Service area</span>
@@ -282,7 +294,7 @@ export function Contact() {
                               Sending…
                             </>
                           ) : (
-                            'Request my free estimate'
+                            'Send my estimate request'
                           )}
                         </Button>
                         <div className="flex flex-col gap-1.5 text-xs text-muted sm:items-end sm:text-right">

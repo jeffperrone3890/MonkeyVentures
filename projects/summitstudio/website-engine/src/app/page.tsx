@@ -1,4 +1,5 @@
 import { Hero } from '@/components/sections/Hero';
+import { TrustStrip } from '@/components/sections/TrustStrip';
 import { WhyChooseUs } from '@/components/sections/WhyChooseUs';
 import { Services } from '@/components/sections/Services';
 import { Gallery } from '@/components/sections/Gallery';
@@ -31,6 +32,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <TrustStrip />
       <WhyChooseUs />
       <Services />
       <Gallery />

@@ -129,6 +129,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'lawn-care',
     title: 'Lawn Care & Maintenance',
+    displayTitle: 'A Sharp, Healthy Lawn Year-Round',
     summary: 'A sharp, healthy lawn on a schedule you never have to think about.',
     details:
       'Weekly or bi-weekly visits from the same crew, every time. We mow, edge, trim, and blow down, then handle the agronomy that keeps turf thick — fertilization, aeration, overseeding, and weed control timed to the season.',
@@ -139,6 +140,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'landscape-design',
     title: 'Landscape Design & Installation',
+    displayTitle: 'Plantings That Fill In Beautifully',
     summary: 'Plantings and beds designed for your light, soil, and how you live outside.',
     details:
       'We design with plants that thrive in Delaware conditions and look right in every season, then install them properly — amended soil, clean bed lines, and mulch that lasts. You get a yard that fills in beautifully instead of fighting to survive.',
@@ -149,6 +151,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'tree-services',
     title: 'Tree Trimming & Removal',
+    displayTitle: 'Expert Tree Work, Cleaned Up Like We Were Never There',
     summary: 'Skilled, careful tree work — with an ISA Certified Arborist on the crew.',
     details:
       'From structural pruning that keeps a tree healthy to full removals in tight spaces, we work to industry safety standards and clean up like we were never there. Stump grinding and storm-damage response included.',
@@ -159,6 +162,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'hardscaping',
     title: 'Patios & Hardscaping',
+    displayTitle: 'Outdoor Spaces Built to Last Decades',
     summary: 'Paver patios, walkways, and walls built on a base that holds for decades.',
     details:
       'The difference between hardscaping that lasts and hardscaping that heaves is what you cannot see — the base. We excavate, compact, and build to spec, so your patio, walkway, or retaining wall stays level through Delaware winters.',
@@ -169,6 +173,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'seasonal-cleanups',
     title: 'Seasonal Cleanups',
+    displayTitle: 'A Show-Ready Property at the Turn of Every Season',
     summary: 'Spring resets and fall leaf removal that get your property show-ready.',
     details:
       'We clear leaves and debris, cut back perennials, refresh bed edges and mulch, and haul everything away. One call resets the whole property at the turn of each season.',
@@ -179,6 +184,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'irrigation-drainage',
     title: 'Irrigation & Drainage',
+    displayTitle: 'Dry Foundations, Thriving Lawns',
     summary: 'Get water where it helps — and away from where it does damage.',
     details:
       'Soggy low spots and dry patches are both water problems. We install and tune irrigation, then solve drainage with French drains, dry wells, and grading so your landscape — and your foundation — stay dry.',
@@ -192,34 +198,34 @@ export const BENEFITS: Benefit[] = [
   {
     title: 'Licensed & insured',
     description:
-      'Fully licensed in Delaware and carrying $2M in general liability. The work — and your property — are covered.',
+      'Fully licensed in Delaware and carrying $2M in general liability. Every job is covered — your property, your crew, your peace of mind.',
     icon: ShieldCheck,
   },
   {
     title: 'The same crew, every visit',
     description:
-      'No rotating subcontractors. You get a consistent team that learns your property and shows up when we say we will.',
+      'No rotating subcontractors, no surprises. The same team learns your property, your preferences, and your schedule — and shows up like clockwork.',
     icon: Users,
   },
   {
-    title: 'Estimates within 24 hours',
+    title: 'Free estimates within 24 hours',
     description:
-      'Send us your details and we respond fast with a clear, written, no-pressure estimate. No surprises on the invoice.',
+      'Send us your details and we respond fast with a clear, written estimate — no pressure, no hidden fees, no obligation. What you see is what you pay.',
     icon: Clock,
   },
   {
-    title: 'Certified arborist on staff',
+    title: 'ISA Certified Arborist on staff',
     description:
-      'Tree work is judgment work. An ISA Certified Arborist guides every removal and prune for the health of the tree and the safety of your home.',
+      'Every tree decision — removal, pruning, or hazard assessment — is made by a certified arborist. Not a guesser with a chainsaw. A professional with credentials.',
     icon: BadgeCheck,
   },
 ];
 
 export const STATS: Stat[] = [
-  { value: '15+', label: 'Years serving New Castle County' },
+  { value: '15+', label: 'Years in New Castle County' },
   { value: '2,000+', label: 'Properties cared for' },
-  { value: '4.9★', label: 'Average rating, 187 reviews' },
-  { value: '24/7', label: 'Storm & emergency response' },
+  { value: '4.9★', label: 'Average Google rating' },
+  { value: '24/7', label: 'Emergency storm response' },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -285,30 +291,34 @@ export const GALLERY: GalleryProject[] = [
   {
     slug: 'front-yard-design',
     title: 'Front yard renovation',
+    description: 'Native plantings, fresh mulch beds, and custom bed edging — designed to look right year-round.',
     category: 'Design',
-    before: { src: '/images/gallery/g4.jpg', alt: 'Front yard before the renovation' },
-    after: { src: '/images/gallery/g1.jpg', alt: 'Renovated front yard with fresh plantings and clean bed lines' },
+    before: { src: '/images/gallery/g4.jpg', alt: 'Front yard before the renovation — overgrown beds and uneven edging' },
+    after: { src: '/images/gallery/g1.jpg', alt: 'Renovated front yard with fresh plantings, clean bed lines, and new mulch' },
   },
   {
     slug: 'paver-patio',
     title: 'Paver patio & fire pit',
+    description: 'Excavated, compacted base, and professionally laid pavers built to stay level through Delaware winters.',
     category: 'Hardscaping',
-    before: { src: '/images/gallery/g5.jpg', alt: 'Backyard before the patio was built' },
-    after: { src: '/images/gallery/g2.jpg', alt: 'Paver patio with built-in fire pit' },
+    before: { src: '/images/gallery/g5.jpg', alt: 'Backyard before the patio — bare ground with no usable outdoor space' },
+    after: { src: '/images/gallery/g2.jpg', alt: 'Finished paver patio with built-in fire pit and outdoor living space' },
   },
   {
     slug: 'oak-removal',
     title: 'Mature oak removal',
+    description: 'Hazardous large-tree removal in a tight residential space — complete cleanup included, stump ground to grade.',
     category: 'Tree Work',
-    before: { src: '/images/gallery/g3.jpg', alt: 'Mature oak before removal' },
-    after: { src: '/images/gallery/g7.jpg', alt: 'Cleared stump after the oak was removed and ground' },
+    before: { src: '/images/gallery/g3.jpg', alt: 'Mature oak with structural damage posing a hazard near the house' },
+    after: { src: '/images/gallery/g7.jpg', alt: 'Cleared site after oak removal — stump ground, debris hauled, area ready to restore' },
   },
   {
     slug: 'lawn-renewal',
     title: 'Full property lawn renewal',
+    description: 'Soil prep, grading, and fresh sod installation — a property that was patchy and thin, restored to a dense, even lawn.',
     category: 'Lawn Care',
-    before: { src: '/images/gallery/g6.jpg', alt: 'Lawn before renewal' },
-    after: { src: '/images/gallery/g8.jpg', alt: 'Freshly installed sod lawn' },
+    before: { src: '/images/gallery/g6.jpg', alt: 'Patchy, thin lawn with bare spots and uneven growth' },
+    after: { src: '/images/gallery/g8.jpg', alt: 'Freshly installed sod — thick, even coverage across the full property' },
   },
 ];
 

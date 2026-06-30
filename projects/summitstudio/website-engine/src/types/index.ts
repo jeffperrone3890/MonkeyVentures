@@ -3,7 +3,15 @@ import type { LucideIcon } from 'lucide-react';
 export interface Service {
   /** URL-safe id, also used as the anchor target. */
   slug: string;
+  /** Functional name — used in forms, footer links, and dropdowns. */
   title: string;
+  /**
+   * Outcome-focused card headline shown to visitors. If omitted, falls back
+   * to `title`. Use this to lead with the customer benefit rather than the
+   * service category name (e.g. "A Sharp, Healthy Lawn Year-Round" instead
+   * of "Lawn Care & Maintenance").
+   */
+  displayTitle?: string;
   /** One-line promise shown on the card. */
   summary: string;
   /** Supporting detail / what's included. */
@@ -44,6 +52,8 @@ export interface BeforeAfterImage {
 export interface GalleryProject {
   slug: string;
   title: string;
+  /** Optional one-line description shown beneath the slider caption. */
+  description?: string;
   category: string;
   before: BeforeAfterImage;
   after: BeforeAfterImage;
