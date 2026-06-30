@@ -89,10 +89,12 @@ function localBusinessJsonLd() {
       '@type': 'City',
       name: `${t.name}, ${BUSINESS.address.region}`,
     })),
-    openingHoursSpecification: [
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '07:00', closes: '18:00' },
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '08:00', closes: '14:00' },
-    ],
+    openingHoursSpecification: BUSINESS.openingHours.map((h) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: h.days,
+      opens: h.opens,
+      closes: h.closes,
+    })),
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: String(BUSINESS.reviews.average),

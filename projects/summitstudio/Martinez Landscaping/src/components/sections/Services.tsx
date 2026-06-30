@@ -15,7 +15,7 @@ export function Services() {
           <SectionHeading
             eyebrow="What we do"
             title="One team for the whole property."
-            intro="From the weekly mow to a full redesign — or an emergency tree on the roof at midnight — it's the same trusted crew, start to finish."
+            intro="From the weekly mow to a full redesign, it's the same trusted crew for everything your property needs, start to finish."
           />
           <Reveal delay={0.1}>
             <Button href="#contact" variant="dark" className="shrink-0">

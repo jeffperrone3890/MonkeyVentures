@@ -25,7 +25,7 @@ export function Gallery() {
         <SectionHeading
           eyebrow="Our work"
           title={`Real ${BUSINESS.address.regionName} properties, transformed.`}
-          intro="Drag the slider on any photo to see the transformation — design installs, hardscaping, tree work, and the lawns we keep sharp all season."
+          intro="Drag the slider on any photo to see the transformation — real projects across the property, from design installs to the lawns we keep sharp all season."
         />
 
         {/* Filters */}

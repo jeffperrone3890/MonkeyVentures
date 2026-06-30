@@ -32,7 +32,7 @@ export function Testimonials() {
         {/* Masonry of cards */}
         <div className="mt-12 columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6">
           {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.author} delay={(i % 3) * 0.06}>
+            <Reveal key={`${t.author}-${t.location}-${i}`} delay={(i % 3) * 0.06}>
               <figure className="break-inside-avoid rounded-4xl border border-foreground/5 bg-background p-7 shadow-soft">
                 <div className="flex items-center justify-between">
                   <StarRating rating={t.rating} />

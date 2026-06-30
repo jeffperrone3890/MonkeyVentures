@@ -62,9 +62,9 @@ export function WhyChooseUs() {
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 to-transparent" />
             </div>
 
-            <div className="absolute -bottom-6 -left-4 max-w-[15rem] rounded-3xl border border-foreground/5 bg-background/95 p-5 shadow-lift backdrop-blur sm:-left-8">
-              <p className="font-display text-3xl font-semibold text-primary">{BUSINESS.credentials.certification.split(' on')[0]}</p>
-              <p className="mt-1 text-sm text-muted">on staff — guiding every prune and removal.</p>
+            <div className="absolute -bottom-6 -left-4 max-w-[16rem] rounded-3xl border border-foreground/5 bg-background/95 p-5 shadow-lift backdrop-blur sm:-left-8">
+              <p className="font-display text-xl font-semibold text-primary">{BUSINESS.credentials.certification}</p>
+              <p className="mt-1 text-sm text-muted">Licensed &amp; insured for every job.</p>
             </div>
           </Reveal>
         </div>

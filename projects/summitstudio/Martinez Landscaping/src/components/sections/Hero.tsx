@@ -64,7 +64,7 @@ export function Hero() {
               <span className="hidden h-4 w-px bg-surface-50/25 sm:block" />
               <span className="inline-flex items-center gap-2">
                 <Clock className="h-4.5 w-4.5 text-accent-soft" />
-                24/7 storm response
+                {BUSINESS.emergencyNote}
               </span>
             </motion.div>
 
@@ -72,11 +72,11 @@ export function Hero() {
               variants={item}
               className="mt-7 font-display text-display font-semibold text-surface-50"
             >
-              Landscaping &amp; tree care, quoted within 24 hours.
+              Lawn &amp; landscape care, quoted within 24 hours.
             </motion.h1>
 
             <motion.p variants={item} className="mt-5 max-w-xl text-lg leading-relaxed text-surface-50/85">
-              The same trusted crew for lawn care, landscape design, and tree work — serving{' '}
+              The same trusted crew for every property service we offer — serving{' '}
               {BUSINESS.address.county} since {BUSINESS.foundedYear}.
             </motion.p>
 

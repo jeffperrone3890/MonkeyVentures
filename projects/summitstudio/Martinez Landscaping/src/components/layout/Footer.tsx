@@ -17,7 +17,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Logo invert />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-surface/70">
-              Full-service landscaping and certified tree care for {BUSINESS.address.county}, {BUSINESS.address.regionName}. Family-owned since {BUSINESS.foundedYear}.
+              Full-service lawn care and landscaping for {BUSINESS.address.county}, {BUSINESS.address.regionName}. Family-owned since {BUSINESS.foundedYear}.
             </p>
             <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-surface-50/10 px-3.5 py-1.5 text-xs font-semibold text-accent-soft">
               <ShieldCheck className="h-4 w-4" />
