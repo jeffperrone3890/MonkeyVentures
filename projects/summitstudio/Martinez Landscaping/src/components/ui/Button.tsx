@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { THEME } from '@/data/theme';
 
-type Variant = 'primary' | 'dark' | 'outline' | 'ghost' | 'onDark';
+type Variant = 'primary' | 'dark' | 'outline' | 'ghost' | 'onDark' | 'outlineOnDark';
 type Size = 'sm' | 'md' | 'lg';
 
 interface BaseProps {
@@ -36,6 +36,10 @@ const variants: Record<Variant, string> = {
     'bg-transparent text-primary hover:bg-primary/5 focus-visible:ring-primary focus-visible:ring-offset-background',
   onDark:
     'bg-surface-50 text-secondary shadow-soft hover:bg-white hover:-translate-y-0.5 focus-visible:ring-accent focus-visible:ring-offset-secondary',
+  // A visibly secondary action on a dark background — bordered, not solid,
+  // so it doesn't compete with a solid `primary` CTA sitting next to it.
+  outlineOnDark:
+    'border border-surface-50/30 bg-transparent text-surface-50 hover:border-surface-50/60 hover:bg-surface-50/10 focus-visible:ring-accent focus-visible:ring-offset-secondary',
 };
 
 const sizes: Record<Size, string> = {
