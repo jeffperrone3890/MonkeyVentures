@@ -1,13 +1,21 @@
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
 /**
  * POST /api/estimate
  *
- * Receives estimate-request submissions from the contact form. Right now it
- * validates the payload and logs it server-side so the project runs with zero
- * configuration. To actually deliver leads, wire up an email/CRM provider in
- * the marked section below (Resend example included) and set the env vars from
- * .env.example.
+ * Receives estimate-request submissions from the contact form, validates
+ * them, and emails the lead via Resend. Configure delivery with these env
+ * vars (see .env.example) — never hardcode the API key:
+ *
+ *   RESEND_API_KEY        — server-only secret, from resend.com/api-keys
+ *   ESTIMATE_TO_EMAIL      — where leads should land
+ *   ESTIMATE_FROM_EMAIL    — a sender address on a domain verified in Resend
+ *
+ * If any of the three are unset, delivery falls back to a server console log
+ * instead of failing outright — useful so the project still runs with zero
+ * configuration in local dev. Production deployments must set all three, or
+ * every submission is only ever logged, never delivered.
  */
 
 interface EstimatePayload {
@@ -18,6 +26,27 @@ interface EstimatePayload {
   address?: string;
   message?: string;
   company?: string; // honeypot
+}
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_SHORT = 200;
+const MAX_MESSAGE = 5000;
+
+function validate(body: EstimatePayload): string | null {
+  const name = body.name?.trim() ?? '';
+  const email = body.email?.trim() ?? '';
+  const phone = body.phone?.trim() ?? '';
+
+  if (!name) return 'Please add your name.';
+  if (name.length > MAX_SHORT) return 'Name is too long.';
+  if (!email && !phone) return 'Please add a phone number or email so we can reach you.';
+  if (email && !EMAIL_RE.test(email)) return 'Please add a valid email address.';
+  if (email.length > MAX_SHORT || phone.length > MAX_SHORT) return 'That entry is too long.';
+  if ((body.service?.length ?? 0) > MAX_SHORT) return 'Service is too long.';
+  if ((body.address?.length ?? 0) > MAX_SHORT) return 'Address is too long.';
+  if ((body.message?.length ?? 0) > MAX_MESSAGE) return 'Project details are too long.';
+
+  return null;
 }
 
 export async function POST(request: Request) {
@@ -33,44 +62,63 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  // Server-side validation mirrors the client.
-  if (!body.name?.trim() || (!body.email?.trim() && !body.phone?.trim())) {
-    return NextResponse.json(
-      { ok: false, error: 'Name and a phone number or email are required.' },
-      { status: 422 },
-    );
+  const validationError = validate(body);
+  if (validationError) {
+    return NextResponse.json({ ok: false, error: validationError }, { status: 422 });
   }
 
-  // ── Deliver the lead ────────────────────────────────────────────────────
-  // Replace this block with your provider. Example with Resend:
-  //
-  //   import { Resend } from 'resend';
-  //   const resend = new Resend(process.env.RESEND_API_KEY);
-  //   await resend.emails.send({
-  //     from: process.env.ESTIMATE_FROM_EMAIL!,
-  //     to: process.env.ESTIMATE_TO_EMAIL!,
-  //     subject: `New estimate request — ${body.name}`,
-  //     replyTo: body.email,
-  //     text: [
-  //       `Name: ${body.name}`,
-  //       `Phone: ${body.phone ?? '—'}`,
-  //       `Email: ${body.email ?? '—'}`,
-  //       `Service: ${body.service ?? '—'}`,
-  //       `Address: ${body.address ?? '—'}`,
-  //       '',
-  //       body.message ?? '',
-  //     ].join('\n'),
-  //   });
-  // ─────────────────────────────────────────────────────────────────────────
+  const name = body.name!.trim();
+  const email = body.email?.trim() || undefined;
+  const phone = body.phone?.trim() || undefined;
 
-  // Default no-config behavior: log to the server console.
-  console.info('[estimate] new request', {
-    name: body.name,
-    phone: body.phone,
-    email: body.email,
-    service: body.service,
-    address: body.address,
-  });
+  const apiKey = process.env.RESEND_API_KEY;
+  const toEmail = process.env.ESTIMATE_TO_EMAIL;
+  const fromEmail = process.env.ESTIMATE_FROM_EMAIL;
 
-  return NextResponse.json({ ok: true });
+  if (!apiKey || !toEmail || !fromEmail) {
+    const missing = [
+      !apiKey && 'RESEND_API_KEY',
+      !toEmail && 'ESTIMATE_TO_EMAIL',
+      !fromEmail && 'ESTIMATE_FROM_EMAIL',
+    ].filter(Boolean);
+    console.warn(`[estimate] Resend not configured (missing ${missing.join(', ')}) — logging instead of emailing.`);
+    console.info('[estimate] new request', { name, phone, email, service: body.service, address: body.address });
+    return NextResponse.json({ ok: true });
+  }
+
+  const resend = new Resend(apiKey);
+
+  try {
+    const { error } = await resend.emails.send({
+      from: fromEmail,
+      to: toEmail,
+      replyTo: email,
+      subject: `New estimate request — ${name}`,
+      text: [
+        `Name: ${name}`,
+        `Phone: ${phone ?? '—'}`,
+        `Email: ${email ?? '—'}`,
+        `Service: ${body.service ?? '—'}`,
+        `Address: ${body.address ?? '—'}`,
+        '',
+        body.message ?? '',
+      ].join('\n'),
+    });
+
+    if (error) {
+      console.error('[estimate] Resend rejected the email:', error.message);
+      return NextResponse.json(
+        { ok: false, error: 'We could not send your request right now. Please call us instead.' },
+        { status: 502 },
+      );
+    }
+
+    return NextResponse.json({ ok: true });
+  } catch (err) {
+    console.error('[estimate] Failed to reach Resend:', err);
+    return NextResponse.json(
+      { ok: false, error: 'We could not send your request right now. Please call us instead.' },
+      { status: 502 },
+    );
+  }
 }
