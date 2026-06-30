@@ -75,7 +75,7 @@ export function Contact() {
 
             <ul className="mt-8 space-y-4">
               <li>
-                <a href={BUSINESS.phoneHref} className="group flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-4 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
+                <a href={BUSINESS.phoneHref} className="group flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary"><Phone className="h-5 w-5" /></span>
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-wider text-muted">Call or text</span>
@@ -84,7 +84,7 @@ export function Contact() {
                 </a>
               </li>
               <li>
-                <a href={BUSINESS.emailHref} className="group flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-4 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
+                <a href={BUSINESS.emailHref} className="group flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary"><Mail className="h-5 w-5" /></span>
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-wider text-muted">Email</span>
@@ -92,14 +92,14 @@ export function Contact() {
                   </span>
                 </a>
               </li>
-              <li className="flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-4 shadow-soft">
+              <li className="flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-6 shadow-soft">
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary"><Clock className="h-5 w-5" /></span>
                 <span>
                   <span className="block text-xs font-semibold uppercase tracking-wider text-muted">Hours</span>
                   <span className="block text-sm font-medium text-secondary">{BUSINESS.hours[0].day}: {BUSINESS.hours[0].time}</span>
                 </span>
               </li>
-              <li className="flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-4 shadow-soft">
+              <li className="flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-6 shadow-soft">
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary"><MapPin className="h-5 w-5" /></span>
                 <span>
                   <span className="block text-xs font-semibold uppercase tracking-wider text-muted">Service area</span>

@@ -52,7 +52,7 @@ export function Gallery() {
         </div>
 
         {/* Before/after grid */}
-        <div className="mt-8 grid gap-8 md:grid-cols-2">
+        <div className="mt-8 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, i) => (
             <Reveal key={project.slug} delay={(i % 2) * 0.08}>
               <BeforeAfterSlider

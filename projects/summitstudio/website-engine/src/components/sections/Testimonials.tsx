@@ -29,11 +29,11 @@ export function Testimonials() {
           </Reveal>
         </div>
 
-        {/* Masonry of cards */}
-        <div className="mt-12 columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6">
+        {/* Grid of cards — CSS Grid equalises row heights within each row, which reads more polished than the old CSS masonry approach */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={`${t.author}-${t.location}-${i}`} delay={(i % 3) * 0.06}>
-              <figure className="break-inside-avoid rounded-4xl border border-foreground/5 bg-background p-7 shadow-soft">
+              <figure className="rounded-4xl border border-foreground/5 bg-background p-6 shadow-soft">
                 <div className="flex items-center justify-between">
                   <StarRating rating={t.rating} />
                   <Quote className="h-7 w-7 text-surface-100" aria-hidden="true" />

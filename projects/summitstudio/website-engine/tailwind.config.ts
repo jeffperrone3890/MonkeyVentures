@@ -32,6 +32,10 @@ const config: Config = {
         'display-lg': ['clamp(2.75rem, 6vw, 5rem)', { lineHeight: '1.02', letterSpacing: '-0.02em' }],
         'display': ['clamp(2.25rem, 4.5vw, 3.75rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
         'heading': ['clamp(1.75rem, 3vw, 2.5rem)', { lineHeight: '1.12', letterSpacing: '-0.015em' }],
+        // Named tokens for the Logo wordmark — replaces arbitrary text-[17px]/text-[10px]
+        // so future clients can adjust the wordmark size from one place.
+        'logo': ['1.0625rem', { lineHeight: '1', letterSpacing: '-0.01em' }],
+        'logo-sub': ['0.625rem', { lineHeight: '1', letterSpacing: '0.22em' }],
       },
       borderRadius: {
         '4xl': THEME.radius.large,

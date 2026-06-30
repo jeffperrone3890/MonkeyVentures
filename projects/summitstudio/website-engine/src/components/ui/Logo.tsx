@@ -34,7 +34,7 @@ export function Logo({ className, invert = false }: LogoProps) {
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            'font-display text-[17px] font-semibold tracking-tight',
+            'font-display text-logo font-semibold tracking-tight',
             invert ? 'text-surface-50' : 'text-secondary',
           )}
         >
@@ -42,7 +42,7 @@ export function Logo({ className, invert = false }: LogoProps) {
         </span>
         <span
           className={cn(
-            'text-[10px] font-semibold uppercase tracking-[0.22em]',
+            'text-logo-sub font-semibold uppercase',
             invert ? 'text-accent-soft' : 'text-highlight',
           )}
         >

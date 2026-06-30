@@ -47,7 +47,7 @@ export function ServiceArea() {
           <Reveal from="right">
             <div className="relative aspect-[4/3] overflow-hidden rounded-5xl bg-secondary shadow-lift">
               {/* Topographic contour background */}
-              <svg className="absolute inset-0 h-full w-full opacity-[0.18]" viewBox="0 0 400 300" fill="none" aria-hidden="true">
+              <svg className="absolute inset-0 h-full w-full opacity-[0.07]" viewBox="0 0 400 300" fill="none" aria-hidden="true">
                 {[0, 1, 2, 3, 4, 5, 6].map((n) => (
                   <path
                     key={n}

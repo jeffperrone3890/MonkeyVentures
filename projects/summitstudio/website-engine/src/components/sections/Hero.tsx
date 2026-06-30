@@ -70,7 +70,7 @@ export function Hero() {
 
             <motion.h1
               variants={item}
-              className="mt-7 font-display text-display font-semibold text-surface-50"
+              className="mt-8 font-display text-display font-semibold text-surface-50"
             >
               Lawn &amp; landscape care, quoted within 24 hours.
             </motion.h1>
@@ -80,7 +80,7 @@ export function Hero() {
               {BUSINESS.address.county} since {BUSINESS.foundedYear}.
             </motion.p>
 
-            <motion.div variants={item} className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <motion.div variants={item} className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Button href="#contact" size="lg">
                 Get My Free Estimate
                 <ArrowRight className="h-5 w-5" />

@@ -83,7 +83,7 @@ export function Footer() {
               </li>
             </ul>
             <Button href="#contact" size="sm" className="mt-5">
-              Request an estimate
+              Free estimate
             </Button>
           </div>
         </div>
@@ -95,10 +95,10 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-5">
             <a href={BUSINESS.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="transition-colors hover:text-surface-50">
-              <Facebook className="h-4.5 w-4.5" />
+              <Facebook className="h-4 w-4" />
             </a>
             <a href={BUSINESS.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-surface-50">
-              <Instagram className="h-4.5 w-4.5" />
+              <Instagram className="h-4 w-4" />
             </a>
             <span className="text-surface/40">Site by Summit Studio</span>
           </div>
