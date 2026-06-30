@@ -62,7 +62,7 @@ This site ships with **clearly-labeled placeholder content** so it runs and look
 ## Project structure
 
 ```
-martinez-landscaping/
+website-engine/
 ├─ public/
 │  ├─ images/                  # hero, about, cta, og + services/ and gallery/
 │  ├─ favicon.ico              # branded sprig mark
