@@ -49,6 +49,7 @@ import type {
   Objection,
   ProofPoint,
   ReviewHighlight,
+  SectionCopy,
   Service,
   ServiceTown,
   Stat,
@@ -256,6 +257,28 @@ export const BUSINESS = {
     { quote: 'A storm dropped a huge limb across our driveway overnight. I called at 6 AM and they had it cleared before I left for work.', author: 'Marcus T.', platform: 'google' },
     { quote: 'Our paver patio came out better than the design renderings. Two winters in and it has not shifted a millimeter.', author: 'Greg & Anita R.', platform: 'google' },
   ] satisfies ReviewHighlight[],
+
+  sectionCopy: {
+    whyChooseUs: {
+      heading: "The crew you'll actually want to keep.",
+      intro: "Anyone can send someone to mow your lawn. We're built for something harder — the long relationship, where you know exactly who's coming, what it costs, and that the work will be done right.",
+    } satisfies SectionCopy,
+    services: {
+      eyebrow: 'What we do',
+      heading: 'One team for the whole property.',
+      intro: "From the weekly mow to a full redesign, it's the same trusted crew for everything your property needs — start to finish.",
+    } satisfies SectionCopy,
+    cta: {
+      eyebrow: 'Free, no-pressure estimate',
+      heading: "Ready for a yard you're proud of?",
+      intro: "Tell us what you need and we'll send a clear, written estimate within 24 hours. No deposits, no pressure — just an honest quote from a crew you can count on.",
+    } satisfies SectionCopy,
+    contact: {
+      eyebrow: 'Free estimate',
+      heading: "Let's talk about your property.",
+      intro: "We make it simple — fill out the form or call us directly. You'll have a clear, written estimate within 24 hours. No pressure, no obligation.",
+    } satisfies SectionCopy,
+  },
 } as const satisfies Business;
 
 /** SEO keyword targets — used in <head> metadata. Business- and location-specific. */

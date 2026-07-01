@@ -45,6 +45,7 @@ import type {
   Objection,
   ProofPoint,
   ReviewHighlight,
+  SectionCopy,
   Service,
   ServiceTown,
   Stat,
@@ -234,6 +235,28 @@ export const BUSINESS = {
     { quote: 'Joe\'s crew is reliable, professional, and the lawn always looks great afterward.', author: 'Verified Customer', platform: 'google' },
     { quote: 'No contracts, fair prices, and they always show up when they say they will. Exactly what I was looking for.', author: 'Verified Customer', platform: 'google' },
   ] satisfies ReviewHighlight[],
+
+  sectionCopy: {
+    whyChooseUs: {
+      heading: 'The crew that shows up, every time.',
+      intro: "No contracts, no rotating teams, no surprises. We earn your business visit by visit — because a yard that looks great every week is the only ad we need.",
+    } satisfies SectionCopy,
+    services: {
+      eyebrow: 'What we offer',
+      heading: 'Full-service lawn care, one team.',
+      intro: "From weekly mowing to seasonal cleanups, we handle everything your property needs — same crew, reliable schedule, consistent results.",
+    } satisfies SectionCopy,
+    cta: {
+      eyebrow: 'No-contract service',
+      heading: "Ready for a lawn you can count on?",
+      intro: "Fill out the form or give us a call. We'll have a free, written estimate back to you within 24 hours — no obligation, no pressure.",
+    } satisfies SectionCopy,
+    contact: {
+      eyebrow: 'Get your free quote',
+      heading: "Let's take care of your yard.",
+      intro: "Call, text, or fill out the form. A clear, no-pressure estimate is back with you within 24 hours — no contract required to get started.",
+    } satisfies SectionCopy,
+  },
 } as const satisfies Business;
 
 export const SEO_KEYWORDS = [

@@ -3,7 +3,7 @@ import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
-import { SERVICES } from '@/data/business';
+import { BUSINESS, SERVICES } from '@/data/business';
 
 export function Services() {
   return (
@@ -11,12 +11,12 @@ export function Services() {
       <Container>
         <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
           <SectionHeading
-            eyebrow="What we do"
-            title="One team for the whole property."
-            intro="From the weekly mow to a full redesign, it&rsquo;s the same trusted crew for everything your property needs — start to finish."
+            eyebrow={BUSINESS.sectionCopy.services.eyebrow ?? 'What we do'}
+            title={BUSINESS.sectionCopy.services.heading}
+            intro={BUSINESS.sectionCopy.services.intro}
           />
           <Button href="#contact" variant="dark" className="shrink-0">
-            Get a free estimate
+            {BUSINESS.ctaStyle.primary}
             <ArrowRight className="h-4.5 w-4.5" />
           </Button>
         </div>

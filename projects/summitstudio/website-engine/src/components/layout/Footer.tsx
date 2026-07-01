@@ -83,7 +83,7 @@ export function Footer() {
               </li>
             </ul>
             <Button href="#contact" size="sm" className="mt-5">
-              Free estimate
+              {BUSINESS.ctaStyle.primary}
             </Button>
           </div>
         </div>

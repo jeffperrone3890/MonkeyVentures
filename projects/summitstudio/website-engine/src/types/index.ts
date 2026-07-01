@@ -138,6 +138,13 @@ export interface ReviewHighlight {
   platform: 'google' | 'yelp' | 'facebook' | 'other';
 }
 
+export interface SectionCopy {
+  /** Short all-caps label above the heading. Optional — some sections derive it dynamically. */
+  eyebrow?: string;
+  heading: string;
+  intro: string;
+}
+
 export interface BrandVoice {
   tone: string;
   avoids: string[];
@@ -209,4 +216,10 @@ export interface Business {
   financing: FinancingConfig | null;
   emergencyService: EmergencyServiceConfig | null;
   reviewHighlights: ReadonlyArray<ReviewHighlight>;
+  sectionCopy: {
+    whyChooseUs: SectionCopy;
+    services: SectionCopy;
+    cta: SectionCopy;
+    contact: SectionCopy;
+  };
 }

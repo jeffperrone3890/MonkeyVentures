@@ -46,6 +46,7 @@ import type {
   Objection,
   ProofPoint,
   ReviewHighlight,
+  SectionCopy,
   Service,
   ServiceTown,
   Stat,
@@ -234,6 +235,28 @@ export const BUSINESS = {
     { quote: 'Professional, on time, and the property looks amazing. Same crew every visit.', author: 'Verified Customer', platform: 'google' },
     { quote: 'They use products that are safe for our kids and pets — that matters to us. Great work too.', author: 'Verified Customer', platform: 'google' },
   ] satisfies ReviewHighlight[],
+
+  sectionCopy: {
+    whyChooseUs: {
+      heading: 'Two decades of showing up right.',
+      intro: "Property care you can trust from a crew that's been doing this for over 20 years — licensed, insured, and built for both residential and commercial clients across New Castle County.",
+    } satisfies SectionCopy,
+    services: {
+      eyebrow: 'Our services',
+      heading: 'Complete outdoor property care.',
+      intro: "From weekly maintenance to commercial contracts, our licensed team handles every aspect of your outdoor property — with the same professionalism, every visit.",
+    } satisfies SectionCopy,
+    cta: {
+      eyebrow: 'Free written estimate',
+      heading: 'Ready for professional property care?',
+      intro: "Request a free estimate today. Our team will assess your property and send back a clear, written quote within 24 hours — no pressure, no obligation.",
+    } satisfies SectionCopy,
+    contact: {
+      eyebrow: 'Request an estimate',
+      heading: 'Tell us about your property.',
+      intro: "Fill out the form or call us directly. We'll review your needs and follow up with a written estimate within 24 hours. Licensed, insured, and ready to help.",
+    } satisfies SectionCopy,
+  },
 } as const satisfies Business;
 
 export const SEO_KEYWORDS = [

@@ -37,9 +37,9 @@ export function CTA() {
 
       <Container>
         <SectionHeading
-          eyebrow="Free, no-pressure estimate"
-          title="Ready for a yard you're proud of?"
-          intro="Tell us what you need and we'll send a clear, written estimate within 24 hours. No deposits, no pressure — just an honest quote from a crew you can count on."
+          eyebrow={BUSINESS.sectionCopy.cta.eyebrow ?? 'Free, no-pressure estimate'}
+          title={BUSINESS.sectionCopy.cta.heading}
+          intro={BUSINESS.sectionCopy.cta.intro}
           invert
           align="center"
         />

@@ -70,9 +70,9 @@ export function Contact() {
           {/* Info column */}
           <div className="lg:col-span-5">
             <SectionHeading
-              eyebrow="Free estimate"
-              title="Let's talk about your property."
-              intro="We make it simple — fill out the form or call us directly. You'll have a clear, written estimate within 24 hours. No pressure, no obligation."
+              eyebrow={BUSINESS.sectionCopy.contact.eyebrow ?? 'Free estimate'}
+              title={BUSINESS.sectionCopy.contact.heading}
+              intro={BUSINESS.sectionCopy.contact.intro}
             />
 
             {/* Prominent phone CTA — the easiest conversion path for trade businesses */}

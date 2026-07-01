@@ -5,8 +5,6 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { BUSINESS, BENEFITS, STATS } from '@/data/business';
 
 export function WhyChooseUs() {
-  const yearsInBusiness = new Date().getFullYear() - BUSINESS.foundedYear;
-
   return (
     <Section id="why-us" tone="paper">
       <Container>
@@ -25,17 +23,12 @@ export function WhyChooseUs() {
           <div>
             <SectionHeading
               eyebrow={`Why ${BUSINESS.logo.primary}`}
-              title="The crew you'll actually want to keep."
-              intro="Anyone can send someone to mow your lawn. We're built for something harder — the long relationship, where you know exactly who's coming, what it costs, and that the work will be done right."
+              title={BUSINESS.sectionCopy.whyChooseUs.heading}
+              intro={BUSINESS.sectionCopy.whyChooseUs.intro}
             />
 
             <p className="mt-6 max-w-[52ch] text-[15px] leading-relaxed text-muted">
-              {BUSINESS.shortName} has been the trusted name for property care in{' '}
-              {BUSINESS.address.county} since {BUSINESS.foundedYear} — that&rsquo;s{' '}
-              {yearsInBusiness}+ years of showing up on time, doing honest work, and
-              building the kind of reputation that earns referrals from half the
-              neighborhood. Every service is delivered by a consistent crew that
-              knows your property and takes it personally.
+              {BUSINESS.businessStory.founding}
             </p>
 
             {/* Editorial numbered list — large decorative numerals, no cards */}
