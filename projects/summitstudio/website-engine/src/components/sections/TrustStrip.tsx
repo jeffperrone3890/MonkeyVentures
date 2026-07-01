@@ -50,12 +50,12 @@ export function TrustStrip() {
                 key={label}
                 className="group flex flex-col items-center gap-2.5 rounded-2xl border border-foreground/5 bg-background px-4 py-5 text-center shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-lift"
               >
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-surface-50">
-                  <Icon className="h-5 w-5" strokeWidth={1.75} />
+                <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-surface-50">
+                  <Icon className="h-6 w-6" strokeWidth={1.75} />
                 </span>
                 <span>
-                  <span className="block text-sm font-semibold text-secondary">{label}</span>
-                  <span className="mt-0.5 block text-xs leading-snug text-muted">{detail}</span>
+                  <span className="block text-[15px] font-bold text-secondary">{label}</span>
+                  <span className="mt-0.5 block text-[13px] leading-snug text-muted">{detail}</span>
                 </span>
               </div>
             ))}

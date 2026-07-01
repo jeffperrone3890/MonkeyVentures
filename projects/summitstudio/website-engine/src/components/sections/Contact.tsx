@@ -78,15 +78,15 @@ export function Contact() {
             <Reveal delay={0.05}>
               <a
                 href={BUSINESS.phoneHref}
-                className="group mt-8 flex items-center gap-4 rounded-3xl border border-foreground/5 bg-background p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-lift"
+                className="group mt-8 flex items-center gap-4 rounded-3xl border border-primary/20 bg-primary/5 p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-lift"
                 aria-label={`Call ${BUSINESS.shortName} at ${BUSINESS.phone}`}
               >
-                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-surface-50">
-                  <Phone className="h-6 w-6" />
+                <span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-primary/15 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-surface-50">
+                  <Phone className="h-7 w-7" />
                 </span>
                 <span className="flex-1">
                   <span className="block text-xs font-semibold uppercase tracking-wider text-muted">Call or text directly</span>
-                  <span className="mt-0.5 block text-2xl font-bold tabular-nums text-secondary">
+                  <span className="mt-0.5 block text-3xl font-bold tabular-nums text-secondary">
                     {BUSINESS.phone}
                   </span>
                   <span className="block text-xs text-muted">Tap to call · Available {BUSINESS.hours[0].day}</span>
@@ -150,7 +150,7 @@ export function Contact() {
                     We typically respond within 24 hours
                   </div>
 
-                  <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                  <form onSubmit={handleSubmit} noValidate className="space-y-5">
                     {/* Honeypot */}
                     <div className="hidden" aria-hidden="true">
                       <label htmlFor="company">Company</label>

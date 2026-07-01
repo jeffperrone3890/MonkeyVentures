@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
@@ -9,6 +9,32 @@ import { Logo } from '@/components/ui/Logo';
 import { BUSINESS } from '@/data/business';
 import { NAV_LINKS } from '@/lib/nav';
 import { cn } from '@/lib/utils';
+
+/**
+ * Watches the given section IDs and returns the ID of whichever section is
+ * currently in the upper-middle 30% of the viewport. Returns '' when no
+ * section is visible (e.g. at the very top of the page).
+ */
+function useActiveSection(ids: readonly string[]): string {
+  const [active, setActive] = useState('');
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActive(id); },
+        { rootMargin: '-10% 0px -60% 0px', threshold: 0 },
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, [ids]);
+
+  return active;
+}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,6 +57,9 @@ export function Navbar() {
     };
   }, [open]);
 
+  const sectionIds = useMemo(() => NAV_LINKS.map((l) => l.href.slice(1)), []);
+  const activeId = useActiveSection(sectionIds);
+
   const solid = scrolled || open;
 
   return (
@@ -49,18 +78,23 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={cn(
-                'text-sm font-medium transition-colors hover:opacity-70',
-                solid ? 'text-foreground' : 'text-surface-50',
-              )}
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = link.href.slice(1) === activeId;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  'text-sm font-medium transition-all duration-200 hover:opacity-70',
+                  solid ? 'text-foreground' : 'text-surface-50',
+                  isActive && solid && 'font-semibold text-primary opacity-100',
+                  isActive && !solid && 'font-semibold opacity-100',
+                )}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -85,6 +119,7 @@ export function Navbar() {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
+          aria-controls="mobile-menu"
           className={cn(
             'grid h-11 w-11 place-items-center rounded-xl transition-colors lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent',
             solid ? 'text-foreground hover:bg-foreground/5' : 'text-surface-50 hover:bg-white/10',
@@ -99,6 +134,8 @@ export function Navbar() {
         {open && (
           <motion.div
             id="mobile-menu"
+            role="dialog"
+            aria-label="Navigation menu"
             initial={reduce ? { opacity: 0 } : { opacity: 0, height: 0 }}
             animate={reduce ? { opacity: 1 } : { opacity: 1, height: 'auto' }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, height: 0 }}
@@ -106,16 +143,22 @@ export function Navbar() {
             className="overflow-hidden border-t border-foreground/5 bg-background lg:hidden"
           >
             <Container className="flex flex-col gap-1 py-4">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-base font-medium text-foreground transition-colors hover:bg-surface-50"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {NAV_LINKS.map((link) => {
+                const isActive = link.href.slice(1) === activeId;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      'rounded-xl px-4 py-3 text-base font-medium text-foreground transition-colors hover:bg-surface-50',
+                      isActive && 'bg-primary/10 font-semibold text-primary',
+                    )}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
               <div className="mt-2 flex flex-col gap-2 border-t border-foreground/5 pt-4">
                 <a
                   href={BUSINESS.phoneHref}

@@ -90,7 +90,7 @@ export function Hero() {
                   <ArrowRight className="h-5 w-5" />
                 </Button>
               </div>
-              <Button href={BUSINESS.phoneHref} variant="outlineOnDark" size="lg">
+              <Button href={BUSINESS.phoneHref} variant="outlineOnDark" size="md">
                 <Phone className="h-5 w-5" />
                 Call Now
               </Button>
@@ -121,7 +121,7 @@ export function Hero() {
 function HeroVisual() {
   return (
     <Reveal from="right">
-      <div className="relative aspect-[16/10] overflow-hidden rounded-4xl shadow-lift lg:aspect-[4/5] lg:rounded-5xl">
+      <div className="relative aspect-[2/1] overflow-hidden rounded-4xl shadow-lift lg:aspect-[4/5] lg:rounded-5xl">
         <Image
           src="/images/hero.jpg"
           alt={`A professionally landscaped property in ${BUSINESS.address.county}, ${BUSINESS.address.regionName}`}
