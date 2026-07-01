@@ -64,12 +64,14 @@ export function Gallery() {
         <div className="mt-8 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, i) => (
             <Reveal key={project.slug} delay={(i % 2) * 0.08}>
-              <div className="group">
-                <BeforeAfterSlider
-                  before={project.before}
-                  after={project.after}
-                  className="aspect-[4/3]"
-                />
+              <div className="group transition-transform duration-300 hover:-translate-y-1">
+                <div className="overflow-hidden rounded-3xl shadow-soft transition-shadow duration-300 group-hover:shadow-lift">
+                  <BeforeAfterSlider
+                    before={project.before}
+                    after={project.after}
+                    className="aspect-[4/3]"
+                  />
+                </div>
                 {/* Caption row */}
                 <div className="mt-3.5 px-1">
                   <div className="flex items-baseline justify-between gap-3">

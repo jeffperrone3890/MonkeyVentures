@@ -24,7 +24,7 @@ export function Hero() {
   return (
     <section id="top" className="relative isolate flex min-h-[78svh] items-center overflow-hidden bg-secondary">
       {/* Signature contour texture */}
-      <svg className="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-[0.07]" viewBox="0 0 400 300" fill="none" aria-hidden="true">
+      <svg className="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-[0.04]" viewBox="0 0 400 300" fill="none" aria-hidden="true">
         {[0, 1, 2, 3, 4, 5, 6].map((n) => (
           <path
             key={n}
@@ -43,7 +43,7 @@ export function Hero() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="lg:col-span-6 xl:col-span-5"
+            className="lg:col-span-6 xl:col-span-6"
           >
             {/* Star rating + trust badges */}
             <motion.div
@@ -103,7 +103,7 @@ export function Hero() {
           </motion.div>
 
           {/* Featured visual */}
-          <div className="lg:col-span-6 xl:col-span-7">
+          <div className="lg:col-span-6 xl:col-span-6">
             <HeroVisual />
           </div>
         </div>

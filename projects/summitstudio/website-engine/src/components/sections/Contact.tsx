@@ -16,7 +16,7 @@ import { cn } from '@/lib/utils';
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 const fieldBase =
-  'w-full rounded-2xl border border-foreground/10 bg-background px-4 py-3.5 text-[15px] text-foreground placeholder:text-muted/60 transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20';
+  'w-full rounded-2xl border border-foreground/10 bg-background px-5 py-4 text-[15px] text-foreground placeholder:text-muted/60 transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20';
 
 export function Contact() {
   const [status, setStatus] = useState<Status>('idle');
@@ -163,18 +163,18 @@ export function Contact() {
                         Your contact info
                       </legend>
                       <div>
-                        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-secondary">
+                        <label htmlFor="name" className="mb-2 block text-sm font-medium text-secondary">
                           Name <span className="text-accent">*</span>
                         </label>
                         <input id="name" name="name" type="text" required autoComplete="name" placeholder="Jane Doe" className={fieldBase} />
                       </div>
                       <div className="grid gap-5 sm:grid-cols-2">
                         <div>
-                          <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-secondary">Phone</label>
+                          <label htmlFor="phone" className="mb-2 block text-sm font-medium text-secondary">Phone</label>
                           <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="(302) 555-0123" className={fieldBase} />
                         </div>
                         <div>
-                          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-secondary">Email</label>
+                          <label htmlFor="email" className="mb-2 block text-sm font-medium text-secondary">Email</label>
                           <input id="email" name="email" type="email" autoComplete="email" placeholder="jane@email.com" className={fieldBase} />
                         </div>
                       </div>
@@ -188,7 +188,7 @@ export function Contact() {
                         </legend>
                         <div className="grid gap-5 sm:grid-cols-2">
                           <div>
-                            <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-secondary">Service needed</label>
+                            <label htmlFor="service" className="mb-2 block text-sm font-medium text-secondary">Service needed</label>
                             <select id="service" name="service" defaultValue="" className={cn(fieldBase, 'appearance-none bg-[length:1.25rem] bg-[right_0.75rem_center] bg-no-repeat pr-10')} style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='${encodeURIComponent(THEME.colors.muted)}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")` }}>
                               <option value="" disabled>Select a service…</option>
                               {SERVICES.map((s) => (
@@ -198,7 +198,7 @@ export function Contact() {
                             </select>
                           </div>
                           <div>
-                            <label htmlFor="address" className="mb-1.5 block text-sm font-medium text-secondary">Property address or town</label>
+                            <label htmlFor="address" className="mb-2 block text-sm font-medium text-secondary">Property address or town</label>
                             <input id="address" name="address" type="text" autoComplete="street-address" placeholder="Town or full address" className={fieldBase} />
                           </div>
                         </div>
@@ -229,12 +229,12 @@ export function Contact() {
                           >
                             <div className="space-y-5 pt-5">
                               <div>
-                                <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-secondary">Project details</label>
+                                <label htmlFor="message" className="mb-2 block text-sm font-medium text-secondary">Project details</label>
                                 <textarea id="message" name="message" rows={4} placeholder="Tell us what you're hoping to do — and a rough timeline if you have one." className={cn(fieldBase, 'resize-y')} />
                               </div>
 
                               <div>
-                                <span className="mb-1.5 block text-sm font-medium text-secondary">
+                                <span className="mb-2 block text-sm font-medium text-secondary">
                                   Photos <span className="font-normal text-muted">(optional)</span>
                                 </span>
                                 <label

@@ -15,7 +15,7 @@ export function WhyChooseUs() {
         <Reveal>
           <div className="grid grid-cols-2 gap-px overflow-hidden rounded-4xl bg-surface-100 shadow-soft lg:grid-cols-4">
             {STATS.map((stat) => (
-              <div key={stat.label} className="bg-background px-6 py-8 text-center">
+              <div key={stat.label} className="bg-background px-6 py-8 text-center transition-colors duration-200 hover:bg-primary/5">
                 <div className="font-display text-4xl font-semibold text-primary">{stat.value}</div>
                 <div className="mt-1.5 text-sm text-muted">{stat.label}</div>
               </div>

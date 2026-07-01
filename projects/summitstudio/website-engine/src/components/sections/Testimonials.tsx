@@ -5,6 +5,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
 import { StarRating } from '@/components/ui/StarRating';
 import { BUSINESS, TESTIMONIALS } from '@/data/business';
+import { cn } from '@/lib/utils';
 
 export function Testimonials() {
   return (
@@ -20,7 +21,7 @@ export function Testimonials() {
 
           {/* Aggregate rating — made visually prominent to build instant credibility */}
           <Reveal delay={0.1}>
-            <div className="flex shrink-0 flex-col items-center gap-2 rounded-4xl border border-foreground/5 bg-background px-8 py-6 shadow-soft">
+            <div className="flex shrink-0 flex-col items-center gap-2 rounded-4xl border border-foreground/5 bg-background px-8 py-6 shadow-soft ring-1 ring-primary/10">
               <div className="font-display text-5xl font-semibold leading-none text-primary">
                 {BUSINESS.reviews.average}
               </div>
@@ -34,10 +35,13 @@ export function Testimonials() {
         </div>
 
         {/* Testimonial cards */}
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={`${t.author}-${t.location}-${i}`} delay={(i % 3) * 0.06}>
-              <figure className="flex h-full flex-col rounded-4xl border border-foreground/5 bg-background p-6 shadow-soft">
+              <figure className={cn(
+                'flex h-full flex-col rounded-4xl border border-foreground/5 bg-background p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift',
+                i % 2 === 0 ? 'hover:border-primary/20' : 'hover:border-highlight/15',
+              )}>
                 {/* Rating + quote icon */}
                 <div className="flex items-center justify-between">
                   <StarRating rating={t.rating} />
