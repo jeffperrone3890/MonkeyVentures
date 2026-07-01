@@ -25,11 +25,26 @@ import {
   Users,
   Clock,
   BadgeCheck,
+  CalendarCheck,
+  Star,
+  ClipboardList,
   type LucideIcon,
 } from 'lucide-react';
 import type {
   Benefit,
+  BrandVoice,
+  Business,
+  BusinessStory,
+  CTAStyle,
+  EmergencyServiceConfig,
+  FAQItem,
+  FinancingConfig,
   GalleryProject,
+  GuaranteeConfig,
+  IdealCustomer,
+  Objection,
+  ProofPoint,
+  ReviewHighlight,
   Service,
   ServiceTown,
   Stat,
@@ -106,7 +121,120 @@ export const BUSINESS = {
     average: 4.7,
     count: 131,
   },
-} as const;
+
+  // ─── Engine Intelligence ────────────────────────────────────────────────
+
+  brandVoice: {
+    tone: 'Straightforward, local, and no-frills professional. We do great work and let the results speak. Direct, friendly, no jargon.',
+    avoids: ['cheap', 'cheapest', 'discount', 'luxury', 'premium', 'state-of-the-art'],
+  } satisfies BrandVoice,
+
+  idealCustomer: {
+    description: 'Newark-area homeowner who wants reliable, fairly-priced lawn care without the contract or the runaround.',
+    painPoints: [
+      'Lawn companies that require long-term contracts',
+      'Prices that change without explanation',
+      'Never knowing who is showing up or when',
+    ],
+    desires: [
+      'Month-to-month flexibility with no commitment',
+      'Consistent, quality work at a fair price',
+      'Direct access to the person running the crew',
+    ],
+  } satisfies IdealCustomer,
+
+  competitiveAdvantages: [
+    'No contracts — cancel anytime with a phone call',
+    'Same crew on your property every visit',
+    'Direct access to Joe, the owner',
+    'BBB A+ rated with 17+ years in the community',
+    'Free quote within 24 hours',
+  ],
+
+  proofPoints: [
+    { icon: ShieldCheck, label: 'Licensed & Insured', detail: 'Fully insured in Delaware' },
+    { icon: CalendarCheck, label: 'Years in Business', detail: 'Serving Newark, DE', computed: 'years-in-business' },
+    { icon: Star, label: 'Rated', detail: 'Verified Google reviews', computed: 'google-rating' },
+    { icon: ClipboardList, label: 'No Contracts', detail: 'Cancel anytime' },
+    { icon: Users, label: 'Same Crew Every Visit', detail: 'Consistent, reliable service' },
+  ] satisfies ProofPoint[],
+
+  objections: [
+    {
+      concern: 'Do I have to sign a long-term contract?',
+      response: 'No contracts — ever. Month-to-month service that you can adjust or cancel with a phone call. We earn your business on every visit.',
+    },
+    {
+      concern: 'How do I know the price won\'t change?',
+      response: 'Your quote is your price. We don\'t change prices mid-season without a conversation first. No surprise invoices.',
+    },
+  ] satisfies Objection[],
+
+  urgency: null,
+
+  pricingStyle: 'quote-based' as const,
+
+  ctaStyle: {
+    primary: 'Get My Free Quote',
+    secondary: 'Call Joe',
+    form: 'Request a free quote',
+    micro: 'No contracts · No pressure · Free quote within 24 hours',
+  } satisfies CTAStyle,
+
+  brandPersonality: {
+    adjectives: ['reliable', 'straightforward', 'local', 'friendly', 'fair'],
+    not: ['corporate', 'pushy', 'fancy', 'overpriced', 'impersonal'],
+  },
+
+  businessStory: {
+    founding: 'Joe started Delaware Lawn Crew in 2007 with one truck and a commitment to do the job right the first time. Seventeen years later, that commitment — and most of the original clients — haven\'t changed.',
+    mission: 'Professional lawn care and landscaping for Newark, Delaware and surrounding communities. Family-run since 2007.',
+    differentiator: 'No contracts, no pressure, no rotating crews — just consistent lawn care from a local team that keeps its word.',
+    heroSubhead: 'No contracts, no pressure, and the same team every visit. A free quote back within 24 hours, and work that stands behind itself.',
+  } satisfies BusinessStory,
+
+  servicePriorities: [
+    'lawn-maintenance',
+    'fertilization',
+    'landscaping',
+    'hardscaping',
+    'pressure-washing',
+    'snow-removal',
+  ],
+
+  faq: [
+    {
+      question: 'Do I need to sign a contract?',
+      answer: 'No contracts here — month-to-month service that you can adjust or cancel anytime with a phone call. We earn your business on every visit.',
+    },
+    {
+      question: 'How quickly can you start?',
+      answer: 'We typically start within 1–2 weeks of your estimate approval, depending on the season. We\'ll give you a specific start date when you book.',
+    },
+    {
+      question: 'What areas does Delaware Lawn Crew serve?',
+      answer: 'Newark, Bear, Glasgow, Middletown, and surrounding communities throughout New Castle County, Delaware.',
+    },
+    {
+      question: 'How do I pay?',
+      answer: 'We accept check, major credit cards, and bank transfer. Invoices are sent digitally after each service — no chasing required.',
+    },
+  ] satisfies FAQItem[],
+
+  guarantee: {
+    headline: 'Satisfaction Guaranteed',
+    description: 'Not happy with the job? Tell us. We\'ll make it right on the next visit, at no extra charge.',
+  } satisfies GuaranteeConfig,
+
+  financing: null satisfies FinancingConfig | null,
+
+  emergencyService: null satisfies EmergencyServiceConfig | null,
+
+  reviewHighlights: [
+    { quote: 'Joe\'s crew is reliable, professional, and the lawn always looks great afterward.', author: 'Verified Customer', platform: 'google' },
+    { quote: 'No contracts, fair prices, and they always show up when they say they will. Exactly what I was looking for.', author: 'Verified Customer', platform: 'google' },
+  ] satisfies ReviewHighlight[],
+} as const satisfies Business;
 
 export const SEO_KEYWORDS = [
   `lawn care ${BUSINESS.address.county}`,

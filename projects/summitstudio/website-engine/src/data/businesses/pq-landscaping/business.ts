@@ -26,11 +26,26 @@ import {
   ShieldCheck,
   Users,
   BadgeCheck,
+  CalendarCheck,
+  Star,
+  ClipboardList,
   type LucideIcon,
 } from 'lucide-react';
 import type {
   Benefit,
+  BrandVoice,
+  Business,
+  BusinessStory,
+  CTAStyle,
+  EmergencyServiceConfig,
+  FAQItem,
+  FinancingConfig,
   GalleryProject,
+  GuaranteeConfig,
+  IdealCustomer,
+  Objection,
+  ProofPoint,
+  ReviewHighlight,
   Service,
   ServiceTown,
   Stat,
@@ -103,7 +118,123 @@ export const BUSINESS = {
     average: 4.7,
     count: 82,
   },
-} as const;
+
+  // ─── Engine Intelligence ────────────────────────────────────────────────
+
+  brandVoice: {
+    tone: 'Professional, environmentally aware, and community-rooted. Two decades of earned trust — confident but never boastful.',
+    avoids: ['cheap', 'cheapest', 'best in the business', 'guaranteed results', 'second to none'],
+  } satisfies BrandVoice,
+
+  idealCustomer: {
+    description: 'New Castle County homeowner or commercial property manager who wants an experienced, fully licensed crew with eco-conscious practices.',
+    painPoints: [
+      'Landscapers who use harsh chemicals without asking',
+      'Companies that don\'t show up for commercial properties on time',
+      'Getting a different quote than the final invoice',
+    ],
+    desires: [
+      'Environmentally responsible products and practices',
+      'A crew with 20+ years of local experience',
+      'Reliable service for both residential and commercial properties',
+    ],
+  } satisfies IdealCustomer,
+
+  competitiveAdvantages: [
+    'Environmentally conscious products and practices',
+    'Over 20 years serving New Castle County',
+    'Licensed and fully insured for residential and commercial',
+    'Pond and storm water management — rare for a landscape company',
+    'Year-round service including snow and ice management',
+  ],
+
+  proofPoints: [
+    { icon: ShieldCheck, label: 'Licensed & Insured', detail: 'Residential & commercial' },
+    { icon: CalendarCheck, label: 'Years in Business', detail: 'New Castle County', computed: 'years-in-business' },
+    { icon: Star, label: 'Rated', detail: 'Verified Google reviews', computed: 'google-rating' },
+    { icon: ClipboardList, label: 'Free Estimates', detail: 'Written quote, no pressure' },
+    { icon: Users, label: 'Eco-Conscious', detail: 'Environmentally responsible practices' },
+  ] satisfies ProofPoint[],
+
+  objections: [
+    {
+      concern: 'Are the products you use safe for kids and pets?',
+      response: 'We use environmentally conscious products and are happy to work around your preferences. Ask us about organic fertilizer programs — we offer them.',
+    },
+    {
+      concern: 'Do you handle commercial properties?',
+      response: 'Yes — we serve both residential homeowners and commercial properties, including HOAs and business campuses. Same licensed crew, same standards.',
+    },
+  ] satisfies Objection[],
+
+  urgency: null,
+
+  pricingStyle: 'quote-based' as const,
+
+  ctaStyle: {
+    primary: 'Request a Free Estimate',
+    secondary: 'Call Us',
+    form: 'Send my estimate request',
+    micro: 'Free estimate · Licensed & insured · Quick response',
+  } satisfies CTAStyle,
+
+  brandPersonality: {
+    adjectives: ['professional', 'eco-conscious', 'experienced', 'thorough', 'dependable'],
+    not: ['corporate', 'cheap', 'flashy', 'high-pressure', 'generic'],
+  },
+
+  businessStory: {
+    founding: 'PQ Landscaping has been a fixture in New Castle County since 2004 — more than two decades of showing up, doing excellent work, and earning referrals from the properties we take care of.',
+    mission: 'Complete outdoor property services for New Castle County homeowners and businesses. Family-owned and licensed since 2004.',
+    differentiator: 'Over 20 years of professional, eco-conscious property care — licensed, insured, and built for both residential and commercial clients.',
+    heroSubhead: 'Over 20 years of professional, eco-conscious property care across New Castle County. Free written estimates, fully licensed and insured.',
+  } satisfies BusinessStory,
+
+  servicePriorities: [
+    'turf-management',
+    'yard-maintenance-cleanup',
+    'landscape-enhancement',
+    'tree-shrub-care',
+    'snow-ice-management',
+    'pond-storm-water-management',
+  ],
+
+  faq: [
+    {
+      question: 'Are you licensed and insured?',
+      answer: 'Yes — fully licensed in Delaware with comprehensive general liability and workers\' compensation coverage for every job, residential or commercial.',
+    },
+    {
+      question: 'Do you offer eco-friendly options?',
+      answer: 'Yes. We use environmentally conscious products and practices throughout our work, including organic fertilizer options. Just ask and we\'ll tailor your program.',
+    },
+    {
+      question: 'What\'s your service area?',
+      answer: 'New Castle County, Delaware — including Wilmington, Newark, New Castle, Bear, and surrounding communities. We also serve commercial properties and HOAs.',
+    },
+    {
+      question: 'Do you handle commercial properties?',
+      answer: 'Yes — we serve both residential homeowners and commercial properties, including HOAs and business campuses. Our crew is licensed and insured for all of it.',
+    },
+  ] satisfies FAQItem[],
+
+  guarantee: null satisfies GuaranteeConfig | null,
+
+  financing: {
+    description: 'Flexible payment plans available for projects over $1,500',
+    minAmount: 1500,
+  } satisfies FinancingConfig,
+
+  emergencyService: {
+    description: 'Emergency storm cleanup & snow response available',
+    responseTime: 'Within 4 hours',
+  } satisfies EmergencyServiceConfig,
+
+  reviewHighlights: [
+    { quote: 'Professional, on time, and the property looks amazing. Same crew every visit.', author: 'Verified Customer', platform: 'google' },
+    { quote: 'They use products that are safe for our kids and pets — that matters to us. Great work too.', author: 'Verified Customer', platform: 'google' },
+  ] satisfies ReviewHighlight[],
+} as const satisfies Business;
 
 export const SEO_KEYWORDS = [
   `lawn care ${BUSINESS.address.county}`,

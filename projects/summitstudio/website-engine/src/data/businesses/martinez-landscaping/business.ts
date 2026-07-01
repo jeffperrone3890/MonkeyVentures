@@ -29,11 +29,26 @@ import {
   Users,
   Clock,
   BadgeCheck,
+  CalendarCheck,
+  Star,
+  ClipboardList,
   type LucideIcon,
 } from 'lucide-react';
 import type {
   Benefit,
+  BrandVoice,
+  Business,
+  BusinessStory,
+  CTAStyle,
+  EmergencyServiceConfig,
+  FAQItem,
+  FinancingConfig,
   GalleryProject,
+  GuaranteeConfig,
+  IdealCustomer,
+  Objection,
+  ProofPoint,
+  ReviewHighlight,
   Service,
   ServiceTown,
   Stat,
@@ -112,7 +127,136 @@ export const BUSINESS = {
     average: 4.9,
     count: 187,
   },
-} as const;
+
+  // ─── Engine Intelligence ────────────────────────────────────────────────
+
+  brandVoice: {
+    tone: 'Warm, professional, and straightforward. Family-owned confidence without corporate stiffness. No jargon, no pressure.',
+    avoids: ['cheap', 'affordable', 'discount', 'ASAP', 'we are the best', 'one-stop-shop'],
+  } satisfies BrandVoice,
+
+  idealCustomer: {
+    description: 'New Castle County homeowner who values a consistent, professional crew they can trust without having to babysit.',
+    painPoints: [
+      'Unreliable crews who show up with a different face every week',
+      'Getting surprise fees after the job is done',
+      'Having to chase contractors to get a response',
+      'Tree work done by someone who isn\'t actually certified',
+    ],
+    desires: [
+      'A crew they recognize who knows their property',
+      'Clear pricing with no surprises on the invoice',
+      'Work done right the first time without asking twice',
+    ],
+  } satisfies IdealCustomer,
+
+  competitiveAdvantages: [
+    'ISA Certified Arborist on staff for every tree decision',
+    'Same crew assigned to your property — no subcontractors, no rotation',
+    'Written estimates within 24 hours, no obligation',
+    '24/7 storm and emergency response',
+    '$2M general liability coverage on every job',
+  ],
+
+  proofPoints: [
+    { icon: ShieldCheck, label: 'Licensed & Insured', detail: '$2M general liability' },
+    { icon: CalendarCheck, label: 'Years in Business', detail: 'Serving New Castle County', computed: 'years-in-business' },
+    { icon: Star, label: 'Rated', detail: 'Verified Google reviews', computed: 'google-rating' },
+    { icon: ClipboardList, label: 'Free Estimates', detail: 'Written quote in 24 hours' },
+    { icon: Users, label: 'Same Crew Every Visit', detail: 'No rotating subcontractors' },
+  ] satisfies ProofPoint[],
+
+  objections: [
+    {
+      concern: 'How do I know the same crew will actually show up every time?',
+      response: 'It\'s built into how we operate. We don\'t use subcontractors or day-labor pools. The team assigned to your property is the team that shows up — every visit, every season.',
+    },
+    {
+      concern: 'What if I\'m not happy with the work?',
+      response: 'We stand behind everything we do with a 100% satisfaction guarantee. If something isn\'t right, call us. We\'ll come back and make it right at no charge.',
+    },
+    {
+      concern: 'Are you qualified to handle large trees near my house?',
+      response: 'Yes — we have an ISA Certified Arborist on staff. Every tree decision is made by a certified professional, not a guesser with a chainsaw.',
+    },
+  ] satisfies Objection[],
+
+  urgency: {
+    message: 'Spring season is filling up fast — book now to secure your start date.',
+  },
+
+  pricingStyle: 'quote-based' as const,
+
+  ctaStyle: {
+    primary: 'Get My Free Estimate',
+    secondary: 'Call Now',
+    form: 'Send my estimate request',
+    micro: 'Free estimate · No obligation · Response within 24 hours',
+  } satisfies CTAStyle,
+
+  brandPersonality: {
+    adjectives: ['reliable', 'professional', 'attentive', 'down-to-earth', 'thorough'],
+    not: ['corporate', 'pushy', 'impersonal', 'flashy', 'sales-y'],
+  },
+
+  businessStory: {
+    founding: 'Martinez Landscaping & Tree Services was founded in 2009 by a crew that believed great property care starts with a face you recognize and a name you can call. We\'ve grown slowly and deliberately — never taking on more clients than we can serve well.',
+    mission: 'Full-service landscaping and tree care in New Castle County, Delaware. Family-owned since 2009.',
+    differentiator: 'The same trusted crew — every visit, every job. No rotating subcontractors, no surprises on the invoice.',
+    heroSubhead: 'The same trusted crew — every visit, every job. Free written estimates within 24 hours, no pressure, and no surprises on the invoice.',
+  } satisfies BusinessStory,
+
+  servicePriorities: [
+    'lawn-care',
+    'tree-services',
+    'hardscaping',
+    'landscape-design',
+    'seasonal-cleanups',
+    'irrigation-drainage',
+  ],
+
+  faq: [
+    {
+      question: 'How do I get a free estimate?',
+      answer: 'Fill out our estimate form or call us directly at (302) 555-0147. We respond within 24 hours with a clear, written quote — no pressure, no obligation.',
+    },
+    {
+      question: 'Will I get the same crew every visit?',
+      answer: 'Yes. We believe consistency produces better results and better relationships. The team assigned to your property is the team that shows up, every time.',
+    },
+    {
+      question: 'What areas do you serve?',
+      answer: 'We serve Wilmington, Newark, Middletown, Bear, Hockessin, Pike Creek, Greenville, New Castle, and surrounding communities throughout New Castle County.',
+    },
+    {
+      question: 'Do you handle emergencies?',
+      answer: 'Yes — storm damage and emergency tree situations are available 24/7. Call our main number any time and we\'ll respond.',
+    },
+    {
+      question: 'Are you licensed and insured?',
+      answer: 'Yes. We are fully licensed in Delaware and carry $2M in general liability insurance. We also have an ISA Certified Arborist on staff for all tree work.',
+    },
+  ] satisfies FAQItem[],
+
+  guarantee: {
+    headline: '100% Satisfaction Guarantee',
+    description: 'If you\'re not completely satisfied with our work, we\'ll come back and make it right — at no charge. No questions, no hassle.',
+  } satisfies GuaranteeConfig,
+
+  financing: null satisfies FinancingConfig | null,
+
+  emergencyService: {
+    description: '24/7 emergency storm cleanup & tree response',
+    phone: '(302) 555-0147',
+    responseTime: '2 hours',
+  } satisfies EmergencyServiceConfig,
+
+  reviewHighlights: [
+    { quote: 'Same two-person crew every week for three years. The lawn has never looked better.', author: 'Priya S.', platform: 'google' },
+    { quote: 'A storm dropped a huge limb across our driveway overnight. I called at 6 AM and they had it cleared before I left for work.', author: 'Marcus T.', platform: 'google' },
+    { quote: 'Our paver patio came out better than the design renderings. Two winters in and it has not shifted a millimeter.', author: 'Greg & Anita R.', platform: 'google' },
+  ] satisfies ReviewHighlight[],
+} as const satisfies Business;
 
 /** SEO keyword targets — used in <head> metadata. Business- and location-specific. */
 export const SEO_KEYWORDS = [

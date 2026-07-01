@@ -9,6 +9,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
 import { StarRating } from '@/components/ui/StarRating';
+import { FinancingBadge } from '@/components/ui/FinancingBadge';
 import { BUSINESS, SERVICES } from '@/data/business';
 import { THEME } from '@/data/theme';
 import { cn } from '@/lib/utils';
@@ -124,6 +125,7 @@ export function Contact() {
               <ShieldCheck className="h-4 w-4 text-highlight" />
               {BUSINESS.credentials.insuranceAmount} · Licensed &amp; insured in {BUSINESS.address.regionName}
             </p>
+            <FinancingBadge />
           </div>
 
           {/* Form column */}
@@ -294,7 +296,7 @@ export function Contact() {
                               Sending…
                             </>
                           ) : (
-                            'Send my estimate request'
+                            BUSINESS.ctaStyle.form
                           )}
                         </Button>
                         <div className="flex flex-col gap-1.5 text-xs text-muted sm:items-end sm:text-right">

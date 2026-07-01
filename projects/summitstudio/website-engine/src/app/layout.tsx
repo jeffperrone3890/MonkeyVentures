@@ -3,6 +3,7 @@ import { Fraunces, Hanken_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { EmergencyBanner } from '@/components/ui/EmergencyBanner';
 import { BUSINESS, SEO_KEYWORDS, SERVICE_TOWNS } from '@/data/business';
 
 // Display: a soft, optical serif — handcrafted and established.
@@ -107,13 +108,14 @@ function localBusinessJsonLd() {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${hanken.variable}`}>
-      <body>
+      <body className={BUSINESS.emergencyService ? 'pb-14' : undefined}>
         <a href="#main" className="skip-link">
           Skip to content
         </a>
         <Navbar />
         <main id="main">{children}</main>
         <Footer />
+        <EmergencyBanner />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}

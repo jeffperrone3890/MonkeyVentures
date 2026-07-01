@@ -47,7 +47,7 @@ export function CTA() {
         <Reveal delay={0.15}>
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <Button href="#contact" size="lg">
-              Get my free estimate
+              {BUSINESS.ctaStyle.primary}
               <ArrowRight className="h-5 w-5" />
             </Button>
             <Button href={BUSINESS.phoneHref} variant="onDark" size="lg">

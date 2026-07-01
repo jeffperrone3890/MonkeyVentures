@@ -69,11 +69,9 @@ export function Hero() {
               {BUSINESS.tagline}
             </motion.h1>
 
-            {/* Compelling subhead: addresses the real concerns — reliability, no surprises, who's actually showing up */}
+            {/* Compelling subhead: per-business copy from businessStory.heroSubhead */}
             <motion.p variants={item} className="mt-5 max-w-xl text-lg leading-relaxed text-surface-50/85">
-              The same trusted crew — every visit, every job. Free written estimates
-              within 24 hours, no pressure, and no surprises on the invoice.
-              Serving {BUSINESS.address.county} since {BUSINESS.foundedYear}.
+              {BUSINESS.businessStory.heroSubhead}
             </motion.p>
 
             {/* CTAs — primary is visually dominant via glow wrapper */}
@@ -86,19 +84,19 @@ export function Hero() {
                   aria-hidden="true"
                 />
                 <Button href="#contact" size="lg" className="relative">
-                  Get My Free Estimate
+                  {BUSINESS.ctaStyle.primary}
                   <ArrowRight className="h-5 w-5" />
                 </Button>
               </div>
               <Button href={BUSINESS.phoneHref} variant="outlineOnDark" size="md">
                 <Phone className="h-5 w-5" />
-                Call Now
+                {BUSINESS.ctaStyle.secondary}
               </Button>
             </motion.div>
 
             {/* Micro-copy beneath the CTAs for final hesitation removal */}
             <motion.p variants={item} className="mt-4 text-sm text-surface-50/50">
-              Free estimate · No obligation · Response within 24 hours
+              {BUSINESS.ctaStyle.micro}
             </motion.p>
           </motion.div>
 
