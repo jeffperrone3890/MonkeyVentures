@@ -1,139 +1,79 @@
-'use client';
-
 import Image from 'next/image';
-import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { Phone, ArrowRight, ShieldCheck, Star, MapPin } from 'lucide-react';
-import { Container } from '@/components/ui/Container';
+import { Phone, ArrowRight, Star, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { Reveal } from '@/components/ui/Reveal';
 import { BUSINESS } from '@/data/business';
-import { THEME } from '@/data/theme';
 
 export function Hero() {
-  const reduce = useReducedMotion();
-
-  const container: Variants = {
-    hidden: {},
-    show: { transition: { staggerChildren: reduce ? 0 : 0.1, delayChildren: 0.05 } },
-  };
-  const item: Variants = {
-    hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 16 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-  };
-
   return (
-    <section id="top" className="relative isolate flex min-h-[78svh] items-center overflow-hidden bg-secondary">
-      {/* Signature contour texture */}
-      <svg className="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-[0.04]" viewBox="0 0 400 300" fill="none" aria-hidden="true">
-        {[0, 1, 2, 3, 4, 5, 6].map((n) => (
-          <path
-            key={n}
-            d={`M-20 ${60 + n * 34} C 80 ${30 + n * 34}, 160 ${100 + n * 34}, 240 ${60 + n * 34} S 380 ${20 + n * 34}, 440 ${70 + n * 34}`}
-            stroke={THEME.colors.accent.soft}
-            strokeWidth="1"
-            fill="none"
-          />
-        ))}
-      </svg>
+    <section
+      id="top"
+      className="flex min-h-[85svh] flex-col overflow-hidden bg-secondary lg:flex-row lg:min-h-[100svh]"
+    >
+      {/* Mobile: full-width image stacks above text */}
+      <div className="relative h-[42svh] shrink-0 lg:hidden">
+        <Image
+          src="/images/hero.jpg"
+          alt={`A professionally landscaped property in ${BUSINESS.address.county}`}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-secondary/20" />
+      </div>
 
-      <Container className="py-20 pt-32 lg:py-24">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Content */}
-          <motion.div
-            variants={container}
-            initial="hidden"
-            animate="show"
-            className="lg:col-span-6 xl:col-span-6"
-          >
-            {/* Star rating + trust badges */}
-            <motion.div
-              variants={item}
-              className="flex flex-wrap items-center gap-x-5 gap-y-2.5 text-sm"
-            >
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-50/10 px-3 py-1.5 text-surface-50">
-                <Star className="h-4 w-4 fill-accent text-accent" aria-hidden="true" />
-                <span className="font-semibold">{BUSINESS.reviews.average}</span>
-                <span className="text-surface-50/70">({BUSINESS.reviews.count} reviews)</span>
-              </span>
-              <span className="inline-flex items-center gap-1.5 text-surface-50/80">
-                <ShieldCheck className="h-4 w-4 text-accent-soft" />
-                Licensed &amp; insured
-              </span>
-            </motion.div>
-
-            {/* Tagline as the primary headline — emotionally resonant, per-business */}
-            <motion.h1
-              variants={item}
-              className="mt-6 font-display text-display font-semibold text-surface-50"
-            >
-              {BUSINESS.tagline}
-            </motion.h1>
-
-            {/* Compelling subhead: per-business copy from businessStory.heroSubhead */}
-            <motion.p variants={item} className="mt-5 max-w-xl text-lg leading-relaxed text-surface-50/85">
-              {BUSINESS.businessStory.heroSubhead}
-            </motion.p>
-
-            {/* CTAs — primary is visually dominant via glow wrapper */}
-            <motion.div variants={item} className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <div className="relative inline-flex shrink-0">
-                {/* Subtle glow behind the primary button to increase visual weight */}
-                <div
-                  className="pointer-events-none absolute inset-0 rounded-full opacity-60 blur-xl"
-                  style={{ background: THEME.colors.accent.DEFAULT }}
-                  aria-hidden="true"
-                />
-                <Button href="#contact" size="lg" className="relative">
-                  {BUSINESS.ctaStyle.primary}
-                  <ArrowRight className="h-5 w-5" />
-                </Button>
-              </div>
-              <Button href={BUSINESS.phoneHref} variant="outlineOnDark" size="md">
-                <Phone className="h-5 w-5" />
-                {BUSINESS.ctaStyle.secondary}
-              </Button>
-            </motion.div>
-
-            {/* Micro-copy beneath the CTAs for final hesitation removal */}
-            <motion.p variants={item} className="mt-4 text-sm text-surface-50/50">
-              {BUSINESS.ctaStyle.micro}
-            </motion.p>
-          </motion.div>
-
-          {/* Featured visual */}
-          <div className="lg:col-span-6 xl:col-span-6">
-            <HeroVisual />
-          </div>
+      {/* Text column */}
+      <div className="flex flex-1 flex-col justify-center px-6 py-14 sm:px-10 lg:w-1/2 lg:px-16 lg:py-32 xl:px-20">
+        {/* Inline trust line — no pill bubbles */}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-surface-50/60">
+          <span className="flex items-center gap-1.5">
+            <Star className="h-3.5 w-3.5 fill-accent text-accent" aria-hidden="true" />
+            {BUSINESS.reviews.average} · {BUSINESS.reviews.count} reviews
+          </span>
+          <span aria-hidden="true" className="text-surface-50/25">·</span>
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck className="h-3.5 w-3.5 text-accent-soft" aria-hidden="true" />
+            Licensed &amp; insured
+          </span>
         </div>
-      </Container>
-    </section>
-  );
-}
 
-/**
- * The hero's featured visual. Isolated as its own piece so the visual
- * itself — currently a single photo — can later be swapped for a
- * before/after slider or a short looping video without touching the grid
- * layout in Hero() above.
- */
-function HeroVisual() {
-  return (
-    <Reveal from="right">
-      <div className="relative aspect-[2/1] overflow-hidden rounded-4xl shadow-lift lg:aspect-[4/5] lg:rounded-5xl">
+        <h1 className="mt-6 font-display text-display font-semibold leading-tight text-surface-50">
+          {BUSINESS.tagline}
+        </h1>
+
+        <p className="mt-5 max-w-lg text-lg leading-relaxed text-surface-50/80">
+          {BUSINESS.businessStory.heroSubhead}
+        </p>
+
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <Button href="#contact" size="lg">
+            {BUSINESS.ctaStyle.primary}
+            <ArrowRight className="h-5 w-5" />
+          </Button>
+          <Button href={BUSINESS.phoneHref} variant="outlineOnDark" size="md">
+            <Phone className="h-5 w-5" />
+            {BUSINESS.ctaStyle.secondary}
+          </Button>
+        </div>
+
+        <p className="mt-4 text-sm text-surface-50/45">
+          {BUSINESS.ctaStyle.micro}
+        </p>
+      </div>
+
+      {/* Desktop: full-bleed image — right half, no border-radius */}
+      <div className="relative hidden w-1/2 shrink-0 lg:block">
         <Image
           src="/images/hero.jpg"
           alt={`A professionally landscaped property in ${BUSINESS.address.county}, ${BUSINESS.address.regionName}`}
           fill
           priority
-          sizes="(max-width: 1024px) 100vw, 45vw"
+          sizes="50vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary/55 via-transparent to-transparent" />
-        <div className="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-secondary/65 px-4 py-2 text-sm font-medium text-surface-50 backdrop-blur-sm">
-          <MapPin className="h-4 w-4 text-accent-soft" />
-          {BUSINESS.address.city}, {BUSINESS.address.region}
-        </div>
+        {/* Narrow gradient where text column meets image — softens the hard split slightly */}
+        <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-secondary to-transparent" />
       </div>
-    </Reveal>
+    </section>
   );
 }

@@ -1,6 +1,7 @@
 import { Hero } from '@/components/sections/Hero';
 import { WhyChooseUs } from '@/components/sections/WhyChooseUs';
 import { Services } from '@/components/sections/Services';
+import { StatementSection } from '@/components/sections/StatementSection';
 import { Gallery } from '@/components/sections/Gallery';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { ServiceArea } from '@/components/sections/ServiceArea';
@@ -9,26 +10,27 @@ import { Contact } from '@/components/sections/Contact';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { ProofBar } from '@/components/ui/ProofBar';
 import { Guarantee } from '@/components/ui/Guarantee';
+import { HairlineDivider } from '@/components/ui/HairlineDivider';
 import { HorizonDivider } from '@/components/ui/HorizonDivider';
+import { BUSINESS } from '@/data/business';
 import { THEME } from '@/data/theme';
 
 /**
  * Home — the single marketing page.
  *
- * Section order is intentional and maps to a visitor's decision journey:
- *   1. Hero ............ hook + primary call to action (request an estimate)
- *   2. WhyChooseUs ..... build trust (credentials, proof, differentiators)
- *   3. Services ........ show what we do
- *   4. Gallery ......... show the quality of the work
- *   5. Testimonials .... social proof
- *   6. ServiceArea ..... "do you serve me?" — reduce friction before asking
- *   7. CTA ............. restate the offer once trust is established
- *   8. Contact ......... the estimate form (the conversion goal)
- *
- * The HorizonDivider — our signature landscape-contour element — leads the
- * eye from the lighter ServiceArea band into the dark secondary-color CTA band.
- *
- * Page-level <head> metadata is inherited from src/app/layout.tsx.
+ * Section order maps to the visitor's decision journey:
+ *   1. Hero ................... hook + primary CTA
+ *   2. ProofBar ............... five trust credentials (no card chrome)
+ *   3. WhyChooseUs ............ numbered editorial list of differentiators
+ *   4. Services ............... what we do (icon + typography, no photos)
+ *   5. StatementSection ....... editorial pull quote — deliberate pause
+ *   6. Gallery ................ before/after work quality proof
+ *   7. Testimonials ........... social proof
+ *   8. ServiceArea ............ geographic scope — remove "do you serve me?" friction
+ *   9. CTA .................... restate the offer
+ *  10. Guarantee .............. risk reversal (renders null if no guarantee)
+ *  11. Contact ................ estimate form — the conversion goal
+ *  12. FAQSection ............. remaining objections (renders null if no FAQ)
  */
 export default function HomePage() {
   return (
@@ -37,6 +39,7 @@ export default function HomePage() {
       <ProofBar />
       <WhyChooseUs />
       <Services />
+      <StatementSection statement={BUSINESS.businessStory.differentiator} />
       <Gallery />
       <Testimonials />
       <ServiceArea />
@@ -44,6 +47,8 @@ export default function HomePage() {
       <CTA />
       <Guarantee />
       <Contact />
+      {/* HairlineDivider separates Contact and FAQSection — both share bg-surface-50 */}
+      <HairlineDivider />
       <FAQSection />
     </>
   );

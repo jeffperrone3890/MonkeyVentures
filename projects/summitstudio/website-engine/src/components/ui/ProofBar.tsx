@@ -1,38 +1,34 @@
 import { Container } from '@/components/ui/Container';
-import { Reveal } from '@/components/ui/Reveal';
 import { BUSINESS } from '@/data/business';
 import { resolveProofPoints } from '@/lib/engine';
 
 /**
- * Data-driven trust indicator strip. Proof points come entirely from
- * BUSINESS.proofPoints — no hardcoded copy. Computed sentinels
- * (years-in-business, google-rating) are resolved to live values here
- * so the strip never shows stale numbers.
+ * Trust credentials strip. Pure typography — no card borders, no icon circles,
+ * no backgrounds. Data-driven from BUSINESS.proofPoints; computed sentinels
+ * (years-in-business, google-rating) resolve to live values at render time.
  */
 export function ProofBar() {
   const items = resolveProofPoints(BUSINESS);
 
   return (
-    <section aria-label="Why choose us at a glance" className="border-b border-foreground/5 bg-background py-10">
+    <section
+      aria-label="Trust credentials"
+      className="border-b border-foreground/8 bg-background py-5"
+    >
       <Container>
-        <Reveal>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            {items.map(({ icon: Icon, label, detail }) => (
-              <div
-                key={label}
-                className="group flex flex-col items-center gap-2.5 rounded-2xl border border-foreground/5 bg-background px-4 py-5 text-center shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-lift"
-              >
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-surface-50">
-                  <Icon className="h-6 w-6" strokeWidth={1.75} />
-                </span>
-                <span>
-                  <span className="block text-[15px] font-bold text-secondary">{label}</span>
-                  <span className="mt-0.5 block text-[13px] leading-snug text-muted">{detail}</span>
-                </span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+        <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+          {items.map(({ icon: Icon, label, detail }) => (
+            <li key={label} className="flex items-center gap-2 text-sm">
+              <Icon
+                className="h-4 w-4 shrink-0 text-primary"
+                strokeWidth={1.75}
+                aria-hidden="true"
+              />
+              <span className="font-semibold text-secondary">{label}</span>
+              <span className="text-muted">{detail}</span>
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
   );
